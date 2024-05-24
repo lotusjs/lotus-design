@@ -1,0 +1,53 @@
+@import "./token.less";
+
+@scroll-area-prefix-cls: ~"@{prefix}-scroll-area";
+
+.@{scroll-area-prefix-cls} {
+  --scrollbar-size: 10px;
+  --border: 240 5.9% 90%;
+
+  overflow: hidden;
+
+  &-viewport {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+
+  &-scrollbar {
+    display: flex;
+    touch-action: none;
+    box-sizing: border-box;
+    /* stylelint-disable-next-line prettier/prettier */
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+
+    /* stylelint-disable-next-line prettier/prettier */
+    &[data-orientation='vertical'] {
+      width: 0.625rem;
+      height: 100%;
+      padding: 1px;
+      border-left-width: 1px;
+      border-left-color: transparent;
+    }
+
+    /* stylelint-disable-next-line prettier/prettier */
+    &[data-orientation='horizontal'] {
+      flex-direction: column;
+      width: 100%;
+      height: 0.625rem;
+      padding: 1px;
+      border-top-width: 1px;
+      border-top-color: transparent;
+    }
+  }
+
+  &-thumb {
+    position: relative;
+    flex: 1;
+    border-radius: 9999px;
+    background-color: hsl(var(--border));
+  }
+}

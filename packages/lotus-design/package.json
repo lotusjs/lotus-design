@@ -29,15 +29,21 @@
   "license": "MIT",
   "peerDependencies": {
     "@types/react": "*",
-    "react": "^16.8 || ^17.0 || ^18.0"
+    "@types/react-dom": "*",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "peerDependenciesMeta": {
     "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
       "optional": true
     }
   },
   "dependencies": {
     "@lotus-design/react-primitives": "^1.0.0",
+    "@pansy/classnames": "^1.0.1",
     "@rcuse/core": "^0.16.0",
     "dayjs": "^1.11.11"
   }
