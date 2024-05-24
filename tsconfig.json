@@ -1,8 +1,4 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "paths": {
-      "@lotus-design/react-context": ["./primitives/context/src"]
-    }
-  }
+  "compilerOptions": {}
 }

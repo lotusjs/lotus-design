@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "watch": "parcel watch",
-    "build": "parcel build"
+    "build": "parcel build --no-cache"
   },
   "exports": {
     ".": {
@@ -37,6 +37,7 @@
     }
   },
   "dependencies": {
+    "@lotus-design/react-primitives": "^1.0.0",
     "@rcuse/core": "^0.16.0",
     "dayjs": "^1.11.11"
   }
