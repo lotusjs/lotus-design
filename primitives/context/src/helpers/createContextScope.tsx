@@ -1,5 +1,6 @@
 import React, {
-  createContext as reactCreateContext,
+  createContext as createReactContext,
+  useContext as useReactContext,
   useMemo,
 } from 'react';
 import { composeContextScopes } from './composeContextScopes'
@@ -13,7 +14,7 @@ export function createContextScope(scopeName: string, createContextScopeDeps: Cr
     rootComponentName: string,
     defaultContext?: ContextValueType
   ) {
-    const BaseContext = reactCreateContext<ContextValueType | undefined>(defaultContext);
+    const BaseContext = createReactContext<ContextValueType | undefined>(defaultContext);
     const index = defaultContexts.length;
     defaultContexts = [...defaultContexts, defaultContext];
 
@@ -33,7 +34,7 @@ export function createContextScope(scopeName: string, createContextScopeDeps: Cr
       scope: Scope<ContextValueType | undefined>
     ) {
       const Context = scope?.[scopeName][index] || BaseContext;
-      const context = React.useContext(Context as React.Context<ContextValueType>);
+      const context = useReactContext(Context as React.Context<ContextValueType>);
       if (context) return context;
       if (defaultContext !== undefined) return defaultContext;
       // if a defaultContext wasn't specified, it's a required context.
@@ -47,7 +48,7 @@ export function createContextScope(scopeName: string, createContextScopeDeps: Cr
 
   const createScope: CreateScope = () => {
     const scopeContexts = defaultContexts.map((defaultContext) => {
-      return reactCreateContext(defaultContext);
+      return createReactContext(defaultContext);
     });
     return function useScope(scope: Scope) {
       const contexts = scope?.[scopeName] || scopeContexts;

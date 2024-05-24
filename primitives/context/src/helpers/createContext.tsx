@@ -1,4 +1,8 @@
-import React, { createContext as reactCreateContext, useMemo, useContext as useReactContext } from 'react';
+import React, {
+  createContext as reactCreateContext,
+  useMemo,
+  useContext as useReactContext
+} from 'react';
 
 export function createContext<ContextValueType extends object | null>(
   rootComponentName: string,
