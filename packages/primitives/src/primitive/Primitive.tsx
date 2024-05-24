@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Slot } from '@lotus-design/react-slot'
+import { Slot } from '../slot'
 
 const NODES = [
   'a',

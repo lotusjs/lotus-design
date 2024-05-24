@@ -1,5 +1,5 @@
 import React, { forwardRef, isValidElement, cloneElement, Children } from 'react';
-import { composeRefs } from '@lotus-design/react-compose-refs'
+import { composeRefs } from '../compose-refs'
 import { mergeProps } from './utils'
 
 interface SlotCloneProps {

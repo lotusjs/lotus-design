@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint --cache .",
     "lint:fix": "nr lint --fix",
-    "build:primitives": "parcel build 'primitives/*/*/' --no-cache",
+    "build:packages": "parcel build 'packages/*/*/' --no-cache",
     "prepare": "husky || true",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
     "preinstall": "npx only-allow pnpm"

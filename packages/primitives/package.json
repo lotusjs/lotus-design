@@ -1,5 +1,5 @@
 {
-  "name": "@lotus-design/react-context",
+  "name": "@lotus-design/react-primitives",
   "version": "1.0.0",
   "scripts": {
     "watch": "parcel watch",
