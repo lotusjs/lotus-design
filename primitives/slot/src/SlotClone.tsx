@@ -21,3 +21,5 @@ export const SlotClone = forwardRef<any, SlotCloneProps>(
     return Children.count(children) > 1 ? Children.only(null) : null;
   }
 )
+
+SlotClone.displayName = 'SlotClone';

@@ -43,3 +43,5 @@ export const Slot = forwardRef<HTMLElement, SlotProps>(
     );
   }
 )
+
+Slot.displayName = 'Slot';
