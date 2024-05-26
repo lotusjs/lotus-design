@@ -18,7 +18,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@lotus-design/react": [
+        "../../packages/lotus-design/src/index.ts"
+      ]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

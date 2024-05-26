@@ -1,4 +1,4 @@
-import { ScrollArea } from '../../../../../packages/lotus-design/src/components/ScrollArea'
+import { ScrollArea } from '@lotus-design/react'
 import styles from './index.module.less'
 
 const TAGS = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
