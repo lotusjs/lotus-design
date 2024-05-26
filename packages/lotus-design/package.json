@@ -2,8 +2,7 @@
   "name": "@lotus-design/react",
   "version": "1.0.0",
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build --no-cache"
+    "build": "walrus build"
   },
   "exports": {
     ".": {
@@ -44,7 +43,7 @@
   "dependencies": {
     "@lotus-design/react-primitives": "^1.0.0",
     "@pansy/classnames": "^1.0.1",
-    "@rcuse/core": "^0.16.0",
+    "@rcuse/core": "^0.17.0",
     "dayjs": "^1.11.11"
   }
 }

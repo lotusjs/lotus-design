@@ -1,7 +1,9 @@
+import { ScrollArea } from './components'
+
 export const App = () => {
   return (
     <>
-      hello world
+      <ScrollArea />
     </>
   )
 }
