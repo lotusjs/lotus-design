@@ -12,6 +12,11 @@
     "slot",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lotusjs/lotus-design.git",
+    "directory": "packages/primitives"
+  },
   "sideEffects": false,
   "license": "MIT",
   "peerDependencies": {

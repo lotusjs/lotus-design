@@ -1,29 +1,43 @@
 {
   "name": "@lotus-design/react",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "build": "walrus build"
+    "build": "walrus build --dts"
   },
+  "keywords": [
+    "react",
+    "react-components",
+    "components",
+    "library",
+    "design-system",
+    "ui"
+  ],
   "exports": {
     ".": {
+      "source": "./src/index.ts",
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.mjs"
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.mjs"
       },
       "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
       }
     }
   },
-  "source": "./src/index.ts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lotusjs/lotus-design.git",
+    "directory": "packages/lotus-design"
+  },
   "sideEffects": false,
   "license": "MIT",
   "peerDependencies": {
@@ -45,5 +59,8 @@
     "@pansy/classnames": "^1.0.1",
     "@rcuse/core": "^0.17.0",
     "dayjs": "^1.11.11"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
