@@ -39,6 +39,7 @@ export async function buildProject(options: BuildOptions) {
       console.log(`[${name}][JS] File changed, rebuilding...`)
     })
   } else {
+    console.log(config)
     const build = await rollup.rollup(config)
 
     const outputs: rollup.OutputOptions[] = Array.isArray(config.output)
