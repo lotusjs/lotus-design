@@ -53,9 +53,9 @@ async function run() {
     })
 
     //
-    // await buildImportStyleFile({
-    //   cwd: dir
-    // })
+    await buildImportStyleFile({
+      cwd: dir
+    })
   });
 }
 

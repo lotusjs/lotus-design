@@ -3,8 +3,6 @@ import alias, { Alias } from '@rollup/plugin-alias'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import esbuild from 'rollup-plugin-esbuild'
-import postcss from 'rollup-plugin-postcss'
-import autoprefixer from 'autoprefixer'
 import { preserveDirectives } from 'rollup-plugin-preserve-directives'
 import glob from 'fast-glob'
 
@@ -40,15 +38,6 @@ export async function getRollupConfig(options: Options): Promise<RollupOptions> 
       platform: isCli ? 'node' : 'browser',
     }),
     replace({ preventAssignment: true }),
-    postcss({
-      extract: true,
-      extensions: ['.less', 'css'],
-      plugins: [
-        autoprefixer({
-          overrideBrowserslist: 'iOS >= 10, Chrome >= 49',
-        }),
-      ],
-    }),
     preserveDirectives(),
     {
       name: '@rollup-plugin/remove-empty-chunks',
