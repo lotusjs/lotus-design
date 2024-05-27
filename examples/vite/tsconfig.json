@@ -23,7 +23,7 @@
     "baseUrl": ".",
     "paths": {
       "@lotus-design/react": [
-        "../../packages/lotus-design/src/index.ts"
+        "../../packages/react/src/index.ts"
       ]
     }
   },

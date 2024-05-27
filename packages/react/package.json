@@ -38,7 +38,11 @@
     "url": "https://github.com/lotusjs/lotus-design.git",
     "directory": "packages/lotus-design"
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.less"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "@types/react": "*",

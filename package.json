@@ -92,6 +92,7 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.0",
     "vite-plugin-dts": "^3.9.1",
+    "vite-plugin-style-import": "^2.0.0",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0",
     "walrus": "workspace:*",
