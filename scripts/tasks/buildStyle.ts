@@ -30,8 +30,6 @@ export async function buildStyle(opts: Options = {}) {
         cwd,
         ignore: ['**/demos/**/*', '**/tests/**/*'],
       })
-      .pipe(gulp.dest('./dist/esm'))
-      .pipe(gulp.dest('./dist/cjs'))
       .pipe(
         less({
           paths: [join(cwd, 'src')],
@@ -49,5 +47,5 @@ export async function buildStyle(opts: Options = {}) {
       .pipe(gulp.dest('./dist/cjs'))
   }
 
-  gulp.parallel(copyLess, buildLess)(() => {})
+  return gulp.parallel(copyLess, buildLess)(() => {})
 }

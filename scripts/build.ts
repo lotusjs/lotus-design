@@ -48,9 +48,9 @@ async function run() {
     }
 
     // 编译样式
-    // await buildStyle({
-    //   cwd: dir
-    // })
+    await buildStyle({
+      cwd: dir
+    })
 
     //
     // await buildImportStyleFile({
