@@ -1,1 +1,1 @@
-export { ScrollArea } from './components/ScrollArea'
+export { ScrollArea } from './ScrollArea'

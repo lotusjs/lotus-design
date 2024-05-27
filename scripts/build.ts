@@ -1,8 +1,7 @@
-import { main as build } from './tasks/build'
+import { main as build } from './tasks/rollup'
+import { buildStyle } from './tasks/style'
 
 (async () => {
-  build().catch((err) => {
-    console.error(err)
-    process.exit(1)
-  })
+  build()
+  buildStyle()
 })();

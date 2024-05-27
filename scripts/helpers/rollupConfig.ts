@@ -10,18 +10,21 @@ import type { Plugin, RollupOptions } from 'rollup'
 
 interface Options {
   dir: string
-  aliases: Alias[]
+  aliases: Alias[],
+  source?: glob.Pattern | glob.Pattern[]
 }
 
-export async function getConfig(options: Options): Promise<RollupOptions> {
-  const { dir, aliases } = options
+export async function getRollupConfig(options: Options): Promise<RollupOptions> {
+  const { dir, aliases, source = 'src/**/*.{ts,tsx}' } = options
 
   const packageJson = await import(resolve(dir, 'package.json'))
 
   const isCli = packageJson.bin !== undefined
 
   const plugins: Plugin[] = [
-    nodeResolve({ extensions: ['.ts', '.tsx', '.js', '.jsx'] }),
+    nodeResolve({
+      extensions: ['.ts', '.tsx', '.js', '.jsx']
+    }),
     alias({ entries: aliases }),
     esbuild({
       sourceMap: true,
@@ -49,7 +52,7 @@ export async function getConfig(options: Options): Promise<RollupOptions> {
 
   const external = new RegExp(`^(${deps.join('|')})`)
 
-  const entries = await glob('src/**/*.{ts,tsx}')
+  const entries = await glob(source)
 
   const outputs: RollupOptions['output'] = [
     {
@@ -83,7 +86,10 @@ export async function getConfig(options: Options): Promise<RollupOptions> {
       warn(warning)
     },
     output: outputs,
-    external,
+    external: [
+      external,
+      new RegExp('/*.less/'),
+    ],
     plugins,
   }
 }

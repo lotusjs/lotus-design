@@ -1,7 +1,7 @@
 import { rmSync } from 'node:fs'
 import { join } from 'node:path/posix'
 import * as rollup from 'rollup'
-import { getConfig } from './config'
+import { getRollupConfig } from '../../helpers/rollupConfig'
 import { generateTypes } from './tsc'
 
 import type { Alias } from '@rollup/plugin-alias'
@@ -24,7 +24,7 @@ export async function buildProject(options: BuildOptions) {
     rmSync(distDir, { recursive: true, force: true })
   }
 
-  const config = await getConfig({ dir, aliases })
+  const config = await getRollupConfig({ dir, aliases })
 
   if (watch) {
     config.watch = {
@@ -39,7 +39,6 @@ export async function buildProject(options: BuildOptions) {
       console.log(`[${name}][JS] File changed, rebuilding...`)
     })
   } else {
-    console.log(config)
     const build = await rollup.rollup(config)
 
     const outputs: rollup.OutputOptions[] = Array.isArray(config.output)
