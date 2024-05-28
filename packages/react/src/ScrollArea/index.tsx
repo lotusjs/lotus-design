@@ -1,6 +1,3 @@
 import { ScrollArea } from './ScrollArea'
-// import './style'
 
-export {
-  ScrollArea,
-}
+export default ScrollArea;
