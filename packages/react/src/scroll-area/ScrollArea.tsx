@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import classnames from '@pansy/classnames'
 import { Root, Viewport, Corner } from '@lotus-design/react-primitives/scroll-area'
 import { ScrollBar } from './ScrollBar'
-import { useConfigContext } from '../Config'
+import { useConfigContext } from '../config'
 
 export const ScrollArea = forwardRef<
   React.ElementRef<typeof Root>,

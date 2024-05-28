@@ -6,8 +6,9 @@ module.exports = {
     ['import', {
       libraryName: '@sensoro-design/react',
       libraryDirectory: 'src',
-      camel2DashComponentName: false,
+      // camel2DashComponentName: false,
       style: (name) => {
+        console.log(name)
         return require('path').join(name, 'style/index.less');
       }
     }]

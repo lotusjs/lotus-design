@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { ScrollAreaScrollbar, ScrollAreaThumb } from '@lotus-design/react-primitives/scroll-area'
-import { useConfigContext } from '../Config'
+import { useConfigContext } from '../config'
 
 export const ScrollBar = forwardRef<
   React.ElementRef<typeof ScrollAreaScrollbar>,
