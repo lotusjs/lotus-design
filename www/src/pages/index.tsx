@@ -24,9 +24,6 @@ function HomepageHeader() {
             Docusaurus Tutorial - 5min ⏱️
           </Link>
         </div>
-        <ScrollArea>
-          123
-        </ScrollArea>
       </div>
     </header>
   );
