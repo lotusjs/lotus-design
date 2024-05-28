@@ -5,6 +5,8 @@ import { Transform } from 'node:stream'
 
 interface Options {
   cwd?: string;
+  esDir?: string;
+  libDir?: string;
 }
 
 function gulpBuildImportStyleFile() {
@@ -31,7 +33,7 @@ function gulpBuildImportStyleFile() {
 }
 
 export async function buildImportStyleFile(opts: Options = {}) {
-  const { cwd = process.cwd() } = opts;
+  const { cwd = process.cwd(), esDir = 'es', libDir = 'lib' } = opts;
 
   function buildCssLib() {
     return gulp
@@ -48,7 +50,7 @@ export async function buildImportStyleFile(opts: Options = {}) {
         basename: 'css',
         extname: '.cjs'
       }))
-      .pipe(gulp.dest('./dist/cjs'))
+      .pipe(gulp.dest(`./${libDir}`))
   }
 
   function buildLessLib() {
@@ -65,7 +67,7 @@ export async function buildImportStyleFile(opts: Options = {}) {
         basename: 'index',
         extname: '.cjs'
       }))
-      .pipe(gulp.dest('./dist/cjs'))
+      .pipe(gulp.dest(`./${libDir}`))
   }
 
   function buildCssES() {
@@ -79,7 +81,7 @@ export async function buildImportStyleFile(opts: Options = {}) {
         basename: 'css',
         extname: '.mjs'
       }))
-      .pipe(gulp.dest('./dist/esm'))
+      .pipe(gulp.dest(`./${esDir}`))
   }
 
   function buildLessES() {
@@ -91,7 +93,7 @@ export async function buildImportStyleFile(opts: Options = {}) {
       .pipe(rename({
         extname: '.mjs'
       }))
-      .pipe(gulp.dest('./dist/esm'))
+      .pipe(gulp.dest(`./${esDir}`))
   }
 
   return gulp.parallel(buildCssLib, buildLessLib, buildCssES, buildLessES)(() => {});

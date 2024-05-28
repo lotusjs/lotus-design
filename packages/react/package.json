@@ -17,19 +17,21 @@
     ".": {
       "source": "./src/index.ts",
       "import": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/esm/index.mjs"
+        "types": "./types/index.d.ts",
+        "default": "./es/index.mjs"
       },
       "require": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/cjs/index.cjs"
+        "types": "./types/index.d.ts",
+        "default": "./lib/index.cjs"
       }
     }
   },
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "main": "lib/index.cjs",
+  "module": "es/index.mjs",
+  "types": "types/index.d.ts",
   "files": [
+    "es",
+    "lib",
     "dist",
     "README.md"
   ],

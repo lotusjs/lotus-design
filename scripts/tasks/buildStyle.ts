@@ -7,10 +7,12 @@ import autoprefixer from 'autoprefixer'
 
 interface Options {
   cwd?: string;
+  esDir?: string;
+  libDir?: string;
 }
 
 export async function buildStyle(opts: Options = {}) {
-  const { cwd = process.cwd() } = opts;
+  const { cwd = process.cwd(), esDir = 'es', libDir = 'lib' } = opts;
 
   function copyLess() {
     return  gulp
@@ -19,8 +21,8 @@ export async function buildStyle(opts: Options = {}) {
         cwd,
         ignore: ['**/demos/**/*', '**/tests/**/*'],
       })
-      .pipe(gulp.dest('./dist/esm'))
-      .pipe(gulp.dest('./dist/cjs'))
+      .pipe(gulp.dest(`./${esDir}`))
+      .pipe(gulp.dest(`./${libDir}`))
   }
 
   function buildLess() {
@@ -43,8 +45,8 @@ export async function buildStyle(opts: Options = {}) {
           }),
         ])
       )
-      .pipe(gulp.dest('./dist/esm'))
-      .pipe(gulp.dest('./dist/cjs'))
+      .pipe(gulp.dest(`./${esDir}`))
+      .pipe(gulp.dest(`./${libDir}`))
   }
 
   return gulp.parallel(copyLess, buildLess)(() => {})

@@ -9,21 +9,25 @@ import glob from 'fast-glob'
 import type { Plugin, RollupOptions } from 'rollup'
 
 interface Options {
-  dir: string
+  cwd?: string
+  esDir?: string;
+  libDir?: string;
   aliases?: Alias[],
   source?: glob.Pattern | glob.Pattern[]
 }
 
 export async function getRollupConfig(options: Options): Promise<RollupOptions> {
   const {
-    dir,
+    cwd = process.cwd(),
+    esDir = 'es',
+    libDir = 'lib',
     aliases = [],
     source = [
       'src/**/*.{ts,tsx}'
     ]
   } = options
 
-  const packageJson = await import(resolve(dir, 'package.json'))
+  const packageJson = await import(resolve(cwd, 'package.json'))
 
   const isCli = packageJson.bin !== undefined
 
@@ -34,7 +38,7 @@ export async function getRollupConfig(options: Options): Promise<RollupOptions> 
     alias({ entries: aliases }),
     esbuild({
       sourceMap: true,
-      tsconfig: resolve(dir, 'tsconfig.json'),
+      tsconfig: resolve(cwd, 'tsconfig.json'),
       platform: isCli ? 'node' : 'browser',
     }),
     replace({ preventAssignment: true }),
@@ -69,7 +73,7 @@ export async function getRollupConfig(options: Options): Promise<RollupOptions> 
       format: 'es',
       exports: 'named',
       entryFileNames: '[name].mjs',
-      dir: resolve(dir, 'dist/esm'),
+      dir: resolve(cwd, esDir),
       preserveModules: true,
     },
   ]
@@ -79,7 +83,7 @@ export async function getRollupConfig(options: Options): Promise<RollupOptions> 
       format: 'cjs',
       exports: 'named',
       entryFileNames: '[name].cjs',
-      dir: resolve(dir, 'dist/cjs'),
+      dir: resolve(cwd, libDir),
       preserveModules: true,
     })
   }
