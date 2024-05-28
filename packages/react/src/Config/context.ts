@@ -6,9 +6,9 @@ interface ConfigContextValue {
 }
 
 export const DefaultConfigContextValue: ConfigContextValue = {
-  prefixCls: 'lotus',
+  prefixCls: 's',
   getPrefixCls: (componentName: string, customPrefix?: string) =>
-    `${customPrefix || 'lotus'}-${componentName}`,
+    `${customPrefix || 's'}-${componentName}`,
 };
 
 const [ConfigContextProvider, useConfigContext] = createContext<ConfigContextValue>('ConfigProvider', DefaultConfigContextValue);

@@ -15,7 +15,7 @@ const lotusDesignDir = join(__dirname, '../../packages/react/src');
 export default defineConfig({
   resolve: {
     alias: {
-      '@lotus-design/react': lotusDesignDir
+      '@sensoro-design/react': lotusDesignDir
     }
   },
   css: {
@@ -30,7 +30,7 @@ export default defineConfig({
     createStyleImportPlugin({
       libs: [
         {
-          libraryName: '@lotus-design/react',
+          libraryName: '@sensoro-design/react',
           libraryNameChangeCase: 'pascalCase',
           resolveStyle: (name) => {
             return join(lotusDesignDir, name, 'style')

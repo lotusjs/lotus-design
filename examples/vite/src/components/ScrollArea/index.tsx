@@ -1,4 +1,4 @@
-import { ScrollArea } from '@lotus-design/react'
+import { ScrollArea } from '@sensoro-design/react'
 import styles from './index.module.less'
 
 const TAGS = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
