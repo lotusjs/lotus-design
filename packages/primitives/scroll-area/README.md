@@ -1,1 +1,1 @@
-<image src="../ScrollArea.webp"></image
+<image src="../ScrollArea.webp"></image>
