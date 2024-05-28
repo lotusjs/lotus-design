@@ -6,6 +6,7 @@
   },
   "scripts": {
     "bootstrap": "pnpm install",
+    "start": "pnpm --filter=website run start",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
