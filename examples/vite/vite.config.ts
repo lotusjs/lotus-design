@@ -31,7 +31,7 @@ export default defineConfig({
       libs: [
         {
           libraryName: '@sensoro-design/react',
-          libraryNameChangeCase: 'pascalCase',
+          libraryNameChangeCase: 'headerCase',
           resolveStyle: (name) => {
             return join(lotusDesignDir, name, 'style')
           },
