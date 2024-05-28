@@ -11,6 +11,8 @@
     "components",
     "library",
     "design-system",
+    "sensoro",
+    "sensoro-design",
     "ui"
   ],
   "exports": {

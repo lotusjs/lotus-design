@@ -4,6 +4,13 @@
     "outDir": "dist"
   },
   "include": [
-    "src"
+    "compose-refs",
+    "context",
+    "direction",
+    "hooks",
+    "presence",
+    "primitive",
+    "scroll-area",
+    "slot"
   ]
 }
