@@ -1,4 +1,4 @@
-import { join, dirname } from 'node:path';
+import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   createStyleImportPlugin,
@@ -10,13 +10,21 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const lotusDesignDir = join(__dirname, '../../packages/react/src');
+const pathResolve = (pathname: string) => resolve(__dirname, '.', pathname);
 
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
-    alias: {
-      '@sensoro-design/react': lotusDesignDir
-    }
+    alias: [
+      {
+        find: '@sensoro-design/react',
+        replacement: lotusDesignDir
+      },
+      {
+        find: /@\//,
+        replacement: pathResolve('src') + '/',
+      },
+    ],
   },
   css: {
     preprocessorOptions: {

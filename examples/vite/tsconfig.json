@@ -22,6 +22,8 @@
 
     "baseUrl": ".",
     "paths": {
+      "@": ["src"],
+      "@/*": ["src/*"],
       "@lotus-design/react": [
         "../../packages/react/src/index.ts"
       ]
