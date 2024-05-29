@@ -38,8 +38,8 @@ export const ScrollAreaScrollbarY = forwardRef<
         top: 0,
         right: context.dir === 'ltr' ? 0 : undefined,
         left: context.dir === 'rtl' ? 0 : undefined,
-        bottom: 'var(--radix-scroll-area-corner-height)',
-        ['--radix-scroll-area-thumb-height' as any]: getThumbSize(sizes) + 'px',
+        bottom: 'var(--s-scroll-area-corner-height)',
+        ['--s-scroll-area-thumb-height' as any]: getThumbSize(sizes) + 'px',
         ...props.style,
       }}
       onThumbPointerDown={(pointerPos) => props.onThumbPointerDown(pointerPos.y)}

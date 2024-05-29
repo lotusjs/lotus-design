@@ -69,8 +69,8 @@ export const ScrollArea = forwardRef<ScrollAreaElement, ScrollAreaProps>(
           style={{
             position: 'relative',
             // Pass corner sizes as CSS vars to reduce re-renders of context consumers
-            ['--radix-scroll-area-corner-width' as any]: cornerWidth + 'px',
-            ['--radix-scroll-area-corner-height' as any]: cornerHeight + 'px',
+            ['--s-scroll-area-corner-width' as any]: cornerWidth + 'px',
+            ['--s-scroll-area-corner-height' as any]: cornerHeight + 'px',
             ...props.style,
           }}
         />
