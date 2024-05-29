@@ -4,10 +4,24 @@ import { Root, Viewport, Corner } from '@lotus-design/react-primitives/scroll-ar
 import { ScrollBar } from './ScrollBar'
 import { useConfigContext } from '../config'
 
+export interface ScrollAreaProps extends React.ComponentPropsWithoutRef<typeof Root> {
+  size?: 'small' | 'default';
+  theme?: 'dark' | 'light';
+}
+
 export const ScrollArea = forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
->(({ className, children, ...props }, ref) => {
+  ScrollAreaProps
+>((
+  {
+    className,
+    children,
+    size = 'default',
+    theme = 'light',
+    ...props
+  },
+  ref
+) => {
   const { getPrefixCls } = useConfigContext('ScrollArea');
 
   const prefixCls = getPrefixCls!('scroll-area');
@@ -15,7 +29,14 @@ export const ScrollArea = forwardRef<
   return (
     <Root
       ref={ref}
-      className={classnames(className, prefixCls)}
+      className={classnames(
+        prefixCls,
+        {
+          [`${prefixCls}-small`]: size === 'small',
+          [`${prefixCls}-dark`]: theme === 'dark',
+        },
+        className,
+      )}
       {...props}
     >
       <Viewport className={`${prefixCls}-viewport`}>

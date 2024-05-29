@@ -3,8 +3,6 @@
 @scroll-area-prefix-cls: ~"@{prefix}-scroll-area";
 
 .@{scroll-area-prefix-cls} {
-  --border: 240 5.9% 90%;
-
   overflow: hidden;
 
   &-viewport {
@@ -23,21 +21,19 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
 
-    /* stylelint-disable-next-line prettier/prettier */
-    &[data-orientation='vertical'] {
-      width: 0.625rem;
+    &[data-orientation="vertical"] {
+      width: 16px;
       height: 100%;
-      padding: 1px;
+      padding: 4px;
       border-left-width: 1px;
       border-left-color: transparent;
     }
 
-    /* stylelint-disable-next-line prettier/prettier */
-    &[data-orientation='horizontal'] {
+    &[data-orientation="horizontal"] {
       flex-direction: column;
       width: 100%;
-      height: 0.625rem;
-      padding: 1px;
+      height: 16px;
+      padding: 4px;
       border-top-width: 1px;
       border-top-color: transparent;
     }
@@ -46,7 +42,41 @@
   &-thumb {
     position: relative;
     flex: 1;
-    border-radius: 9999px;
-    background-color: hsl(var(--border));
+    border-radius: @scroll-area-thumb-radius;
+    background-color: @grey-6;
+
+    &:hover {
+      background-color: @grey-7;
+    }
+
+    &:active {
+      background-color: @grey-7;
+    }
+  }
+}
+
+.@{scroll-area-prefix-cls}-small {
+  .@{scroll-area-prefix-cls}-scrollbar {
+    &[data-orientation="vertical"] {
+      width: 12px;
+    }
+
+    &[data-orientation="horizontal"] {
+      height: 12px;
+    }
+  }
+}
+
+.@{scroll-area-prefix-cls}-dark {
+  .@{scroll-area-prefix-cls}-thumb {
+    background-color: fade(@color-white, 15%);
+
+    &:hover {
+      background-color: fade(@color-white, 35%);
+    }
+
+    &:active {
+      background-color: fade(@color-white, 35%);
+    }
   }
 }
