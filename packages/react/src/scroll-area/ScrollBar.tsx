@@ -5,7 +5,7 @@ import { useConfigContext } from '../config'
 export const ScrollBar = forwardRef<
   React.ElementRef<typeof ScrollAreaScrollbar>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaScrollbar>
->(({ className, orientation = "vertical", ...props }, ref) => {
+>(({ className, ...props }, ref) => {
   const { getPrefixCls } = useConfigContext('ScrollArea');
   const prefixCls = getPrefixCls!('scroll-area');
 
@@ -13,7 +13,7 @@ export const ScrollBar = forwardRef<
     <ScrollAreaScrollbar
       ref={ref}
       className={`${prefixCls}-scrollbar`}
-      orientation={orientation}
+      {...props}
     >
       <ScrollAreaThumb className={`${prefixCls}-thumb`} />
     </ScrollAreaScrollbar>

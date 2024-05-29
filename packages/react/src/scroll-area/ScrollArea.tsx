@@ -42,7 +42,8 @@ export const ScrollArea = forwardRef<
       <Viewport className={`${prefixCls}-viewport`}>
         {children}
       </Viewport>
-      <ScrollBar />
+      <ScrollBar orientation="vertical" />
+      <ScrollBar orientation="horizontal" />
       <Corner />
     </Root>
   )

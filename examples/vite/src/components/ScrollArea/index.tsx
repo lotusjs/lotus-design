@@ -1,21 +1,33 @@
-import { ScrollArea, type ScrollAreaProps } from '@sensoro-design/react'
+import { ScrollArea } from '@sensoro-design/react'
+import { Tags } from './components/Tags'
+import { Cards } from './components/Cards'
 import styles from './index.module.less'
 
-const TAGS = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
-
-export default (props: ScrollAreaProps) => {
+export const ScrollAreaExample = () => {
   return (
     <>
-      <ScrollArea type="always" className={styles.root} {...props}>
-        <div className={styles.content}>
-          <div className={styles.text}>Tags</div>
-          {TAGS.map((tag) => (
-            <div className={styles.tag} key={tag}>
-              {tag}
-              <div className={styles.separator}></div>
-            </div>
-          ))}
-        </div>
+      <ScrollArea type="always" className={styles.root}>
+        <Tags />
+      </ScrollArea>
+      <br />
+
+      <ScrollArea type="always" size="small" className={styles.root}>
+        <Tags />
+      </ScrollArea>
+      <br />
+
+      <ScrollArea type="always" theme="dark" className={styles.root} style={{ backgroundColor: 'rgba(26, 38, 61, 0.85)' }}>
+        <Tags />
+      </ScrollArea>
+      <br />
+
+      <ScrollArea type="always" theme="dark" size="small" className={styles.root} style={{ backgroundColor: 'rgba(26, 38, 61, 0.85)' }}>
+        <Tags />
+      </ScrollArea>
+      <br />
+
+      <ScrollArea type="always" className={styles.root} style={{ height: 'auto' }}>
+        <Cards />
       </ScrollArea>
     </>
   )
