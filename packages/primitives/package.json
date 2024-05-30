@@ -32,5 +32,8 @@
     "@types/react-dom": {
       "optional": true
     }
+  },
+  "dependencies": {
+    "@rcuse/core": "^0.17.1"
   }
 }
