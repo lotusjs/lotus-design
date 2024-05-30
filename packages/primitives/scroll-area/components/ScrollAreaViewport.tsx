@@ -25,13 +25,13 @@ export const ScrollAreaViewport = forwardRef<ScrollAreaViewportElement, ScrollAr
       <>
         <style
           dangerouslySetInnerHTML={{
-            __html: `[data-s-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-s-scroll-area-viewport]::-webkit-scrollbar{display:none}`,
+            __html: `[data-lotus-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-lotus-scroll-area-viewport]::-webkit-scrollbar{display:none}`,
           }}
           nonce={nonce}
         />
 
         <Primitive.div
-          data-s-scroll-area-viewport=""
+          data-lotus-scroll-area-viewport=""
           {...viewportProps}
           ref={composedRefs}
           style={{

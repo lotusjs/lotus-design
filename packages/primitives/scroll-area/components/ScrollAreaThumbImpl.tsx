@@ -60,8 +60,8 @@ export const ScrollAreaThumbImpl = forwardRef<ScrollAreaThumbImplElement, Scroll
         {...thumbProps}
         ref={composedRef}
         style={{
-          width: 'var(--s-scroll-area-thumb-width)',
-          height: 'var(--s-scroll-area-thumb-height)',
+          width: 'var(--lotus-scroll-area-thumb-width)',
+          height: 'var(--lotus-scroll-area-thumb-height)',
           ...style,
         }}
         onPointerDownCapture={composeEventHandlers(props.onPointerDownCapture, (event) => {

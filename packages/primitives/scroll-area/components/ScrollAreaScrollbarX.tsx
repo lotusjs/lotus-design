@@ -36,9 +36,9 @@ export const ScrollAreaScrollbarX = forwardRef<
       sizes={sizes}
       style={{
         bottom: 0,
-        left: context.dir === 'rtl' ? 'var(--s-scroll-area-corner-width)' : 0,
-        right: context.dir === 'ltr' ? 'var(--s-scroll-area-corner-width)' : 0,
-        ['--s-scroll-area-thumb-width' as any]: getThumbSize(sizes) + 'px',
+        left: context.dir === 'rtl' ? 'var(--lotus-scroll-area-corner-width)' : 0,
+        right: context.dir === 'ltr' ? 'var(--lotus-scroll-area-corner-width)' : 0,
+        ['--lotus-scroll-area-thumb-width' as any]: getThumbSize(sizes) + 'px',
         ...props.style,
       }}
       onThumbPointerDown={(pointerPos) => props.onThumbPointerDown(pointerPos.x)}
