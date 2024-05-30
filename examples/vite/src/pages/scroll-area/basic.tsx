@@ -6,7 +6,7 @@ import styles from './basic.module.less'
 const Basic = () => {
   return (
     <>
-      <ScrollArea type="always" className={styles.root}>
+      <ScrollArea className={styles.root}>
         <Tags />
       </ScrollArea>
       <br />

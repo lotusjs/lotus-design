@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import classnames from '@pansy/classnames'
-import { Root, Viewport, Corner } from '@lotus-design/react-primitives/scroll-area'
+import { Root, Viewport, Corner, useScrollAreaContext } from '@lotus-design/react-primitives/scroll-area'
 import { ScrollBar } from './ScrollBar'
 import { useConfigContext } from '../config'
 
@@ -9,7 +9,7 @@ export interface ScrollAreaProps extends React.ComponentPropsWithoutRef<typeof R
   theme?: 'dark' | 'light';
 }
 
-export const ScrollArea = forwardRef<
+const InternalCompoundedScrollArea = forwardRef<
   React.ElementRef<typeof Root>,
   ScrollAreaProps
 >((
@@ -49,4 +49,13 @@ export const ScrollArea = forwardRef<
   )
 })
 
+type CompoundedComponent = typeof InternalCompoundedScrollArea & {
+  useScrollAreaContext: typeof useScrollAreaContext;
+};
+
+const ScrollArea = InternalCompoundedScrollArea as CompoundedComponent;
+
+ScrollArea.useScrollAreaContext = useScrollAreaContext;
 ScrollArea.displayName = Root.displayName
+
+export default ScrollArea;

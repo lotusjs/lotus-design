@@ -1,51 +1,70 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ScrollArea } from '@sensoro-design/react';
 
+const { useScrollAreaContext } = ScrollArea;
+
+const AutoHeight = () => {
+  const { scrollArea } = useScrollAreaContext('ScrollAreaScrollbar', undefined);
+
+  const handleResize = () => {
+    if (scrollArea) {
+      scrollArea.style.height = '100%';
+      handleResizeObserver();
+    }
+  }
+
+  const handleResizeObserver = () => {
+    if (scrollArea) {
+      const height = scrollArea.clientHeight;
+      const scrollHeight = scrollArea.scrollHeight;
+
+      if (height < scrollHeight) {
+        scrollArea.style.height = height + 'px'
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (!scrollArea) return;
+    window.addEventListener('resize', handleResize);
+    const resizeObserver = new ResizeObserver(handleResizeObserver);
+    resizeObserver.observe(scrollArea);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      resizeObserver.unobserve(scrollArea)
+    }
+  }, [scrollArea])
+
+  return null;
+}
+
 export const List = () => {
-  const rootRef = useRef<HTMLDivElement>(null);
   const [list, setList] = useState<number[]>([
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   ])
-  const [height, setHeight] = useState<number | string>(0);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       setList((prev) => [1, ...prev,])
-    }, 5 * 1000)
-  }, [])
+    }, 2 * 1000)
 
-  useEffect(() => {
-    if (rootRef.current) {
-      const targetElement = rootRef.current;
-
-      const contentElement = rootRef.current.querySelector('[data-s-scroll-area-viewport=""]')!.children[0];
-
-      if (contentElement) {
-        const resizeObserver = new ResizeObserver(() => {
-          const height = targetElement.clientHeight;
-          const contentheight = targetElement.scrollHeight;
-
-          if (height < contentheight) {
-            setHeight(height)
-          }
-        });
-
-        resizeObserver.observe(contentElement);
-      }
+    return () => {
+      clearInterval(interval)
     }
-  }, []);
+  }, [])
 
   return (
     <>
       <ScrollArea
-        ref={rootRef}
         style={{
-          height: height ? height : '100%',
+          height: '100%',
           width: '100%',
         }}
         type="always"
         theme="dark"
       >
+        <AutoHeight />
         {list.map((_, index) => {
           return (
             <p key={index}>信息占位{index + 1}</p>
