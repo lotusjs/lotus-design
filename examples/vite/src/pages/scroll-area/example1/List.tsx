@@ -6,15 +6,9 @@ const { useScrollAreaContext } = ScrollArea;
 const AutoHeight = () => {
   const { scrollArea } = useScrollAreaContext('ScrollAreaScrollbar', undefined);
 
-  const handleResize = () => {
-    if (scrollArea) {
-      scrollArea.style.height = '100%';
-      handleResizeObserver();
-    }
-  }
-
   const handleResizeObserver = () => {
     if (scrollArea) {
+      scrollArea.style.height = '100%';
       const height = scrollArea.clientHeight;
       const scrollHeight = scrollArea.scrollHeight;
 
@@ -26,12 +20,12 @@ const AutoHeight = () => {
 
   useEffect(() => {
     if (!scrollArea) return;
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResizeObserver);
     const resizeObserver = new ResizeObserver(handleResizeObserver);
     resizeObserver.observe(scrollArea);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResizeObserver);
       resizeObserver.unobserve(scrollArea)
     }
   }, [scrollArea])
