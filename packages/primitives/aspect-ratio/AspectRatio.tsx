@@ -44,6 +44,8 @@ const AspectRatio = forwardRef<AspectRatioElement, AspectRatioProps>(
 
 AspectRatio.displayName = NAME;
 
+/* ---------------------------------------------------------------------------------------------- */
+
 const Root = AspectRatio;
 
 export {

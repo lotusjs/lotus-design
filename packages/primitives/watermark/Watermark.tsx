@@ -11,7 +11,7 @@ import type { WatermarkProps } from './interface'
 const DEFAULT_GAP_X = 100;
 const DEFAULT_GAP_Y = 100;
 
-export const Watermark = (
+const Watermark = (
   (props: WatermarkProps) => {
     const {
       className,
@@ -219,3 +219,13 @@ export const Watermark = (
     )
   }
 )
+
+/* ---------------------------------------------------------------------------------------------- */
+
+const Root = Watermark;
+
+export {
+  Watermark,
+  Root,
+};
+export type { WatermarkProps };
