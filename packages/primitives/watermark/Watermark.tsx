@@ -1,16 +1,18 @@
-import React, { forwardRef, useMemo, useState, useEffect } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { Primitive } from '../primitive';
 import { getPixelRatio, reRendering } from './utils';
 import { useClips, FontGap } from './hooks/useClips'
 import { useWatermark } from './hooks/useWatermark'
+import { useRafDebounce } from './hooks/useRafDebounce'
+import { useMutateObserver } from './hooks/useMutateObserver'
 
-import type { WatermarkProps, WatermarkElement } from './interface'
+import type { WatermarkProps } from './interface'
 
 const DEFAULT_GAP_X = 100;
 const DEFAULT_GAP_Y = 100;
 
-export const Watermark = forwardRef<WatermarkElement, WatermarkProps>(
-  (props, forwardedRef) => {
+export const Watermark = (
+  (props: WatermarkProps) => {
     const {
       className,
       style,
@@ -73,7 +75,7 @@ export const Watermark = forwardRef<WatermarkElement, WatermarkProps>(
     )
 
     const [container, setContainer] = useState<HTMLDivElement | null>();
-    const [subElements, setSubElements] = useState(new Set<HTMLElement>());
+    const [subElements] = useState(new Set<HTMLElement>());
 
     const targetElements = useMemo(() => {
       const list = container ? [container] : [];
@@ -159,9 +161,12 @@ export const Watermark = forwardRef<WatermarkElement, WatermarkProps>(
       }
     }
 
+    const syncWatermark = useRafDebounce(renderWatermark);
+
     // ============================= Effect =============================
 
-    const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle);
+    const { appendWatermark, isWatermarkEle } = useWatermark(markStyle);
+
     useEffect(() => {
       if (watermarkInfo) {
         targetElements.forEach((holder) => {
@@ -175,10 +180,31 @@ export const Watermark = forwardRef<WatermarkElement, WatermarkProps>(
     const onMutate = (mutations: MutationRecord[]) => {
       mutations.forEach((mutation) => {
         if (reRendering(mutation, isWatermarkEle)) {
-          // syncWatermark();
+          syncWatermark();
         }
       });
     };
+
+    useMutateObserver(targetElements, onMutate);
+
+    useEffect(syncWatermark, [
+      rotate,
+      zIndex,
+      width,
+      height,
+      image,
+      content,
+      color,
+      fontSize,
+      fontWeight,
+      fontStyle,
+      fontFamily,
+      textAlign,
+      gapX,
+      gapY,
+      offsetLeft,
+      offsetTop,
+    ]);
 
     // ============================= Render =============================
 

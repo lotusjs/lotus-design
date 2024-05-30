@@ -16,11 +16,11 @@ export type AppendWatermark = (
 
 export function useWatermark(
   markStyle: React.CSSProperties,
-): [
+): {
   appendWatermark: AppendWatermark,
   removeWatermark: (container: HTMLElement) => void,
   isWatermarkEle: (ele: Node) => boolean,
-] {
+} {
   const [watermarkMap] = useState(() => new Map<HTMLElement, HTMLDivElement>());
 
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
@@ -64,5 +64,5 @@ export function useWatermark(
 
   const isWatermarkEle = (ele: any) => Array.from(watermarkMap.values()).includes(ele);
 
-  return [appendWatermark, removeWatermark, isWatermarkEle];
+  return {appendWatermark, removeWatermark, isWatermarkEle};
 }

@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import ScrollAreaRoutes from './ScrollAreaRoutes'
+import WatermarkRoutes from './WatermarkRoutes'
 
 const router = createBrowserRouter(
   [
@@ -8,6 +9,7 @@ const router = createBrowserRouter(
       element: <Navigate to="/scroll-area"  />
     },
     ScrollAreaRoutes,
+    WatermarkRoutes,
   ],
   { basename: import.meta.env.BASE_URL }
 )
