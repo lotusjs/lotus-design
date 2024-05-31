@@ -31,6 +31,7 @@
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
     "@testing-library/user-event": "^14.5.2",
+    "@total-typescript/ts-reset": "^0.5.1",
     "@types/gulp": "^4.0.17",
     "@types/gulp-postcss": "^8.0.6",
     "@types/gulp-rename": "^2.0.6",

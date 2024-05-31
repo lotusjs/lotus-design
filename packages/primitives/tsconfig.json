@@ -4,6 +4,7 @@
     "outDir": "dist"
   },
   "include": [
+    "aspect-ratio",
     "compose-refs",
     "context",
     "direction",
@@ -11,6 +12,8 @@
     "presence",
     "primitive",
     "scroll-area",
-    "slot"
+    "slot",
+    "watermark",
+    "reset.d.ts"
   ]
 }
