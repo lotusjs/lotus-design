@@ -1,8 +1,8 @@
 import React, { forwardRef, useState } from 'react'
+import { useResizeObserver } from '@rcuse/core'
 import { Primitive } from '../../primitive'
 import { useScrollAreaContext } from '../context'
 import { CORNER_NAME } from '../constants'
-import { useResizeObserver } from '../../hooks/useResizeObserver'
 import type {
   PrimitiveDivProps,
   ScopedProps,

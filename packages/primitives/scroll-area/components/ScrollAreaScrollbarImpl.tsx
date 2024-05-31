@@ -1,10 +1,10 @@
 import React, { forwardRef, useState, useRef, useEffect } from 'react'
+import { useResizeObserver } from '@rcuse/core'
 import { Primitive } from '../../primitive'
 import { SCROLLBAR_NAME } from '../constants'
 import { useScrollAreaContext, ScrollbarProvider } from '../context'
 import { useComposedRefs } from '../../compose-refs'
 import { useCallbackRef } from '../../hooks/useCallbackRef'
-import { useResizeObserver } from '../../hooks/useResizeObserver'
 import { useDebounceCallback } from '../../hooks/useDebounceCallback'
 import { composeEventHandlers } from '../utils'
 import type {

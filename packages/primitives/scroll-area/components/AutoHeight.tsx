@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useScrollAreaContext } from '../context'
-import { useResizeObserver } from '../../hooks/useResizeObserver'
+import { useResizeObserver } from '@rcuse/core'
 import type { ScopedProps } from '../types'
 
 interface AutoHeightProps {}

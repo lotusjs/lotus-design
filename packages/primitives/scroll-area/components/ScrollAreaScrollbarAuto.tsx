@@ -1,9 +1,9 @@
 import React, { forwardRef, useState } from 'react'
+import { useResizeObserver } from '@rcuse/core'
 import { useScrollAreaContext } from '../context'
 import { SCROLLBAR_NAME } from '../constants'
 import { Presence } from '../../presence'
 import { useDebounceCallback } from '../../hooks/useDebounceCallback'
-import { useResizeObserver } from '../../hooks/useResizeObserver'
 import { ScrollAreaScrollbarVisible } from './ScrollAreaScrollbarVisible'
 import type {
   ScrollAreaScrollbarAutoElement,
