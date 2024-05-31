@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import classnames from '@pansy/classnames'
-import { Root, Viewport, Corner, useScrollAreaContext } from '@lotus-design/react-primitives/scroll-area'
+import { Root, Viewport, Corner, useScrollAreaContext, AutoHeight } from '@lotus-design/react-primitives/scroll-area'
 import { ScrollBar } from './ScrollBar'
 import { useConfigContext } from '../config'
 import type { ScrollAreaProps } from './interface'
@@ -46,12 +46,14 @@ const InternalCompoundedScrollArea = forwardRef<
 })
 
 type CompoundedComponent = typeof InternalCompoundedScrollArea & {
-  useScrollAreaContext: typeof useScrollAreaContext;
+  AutoHeight: typeof AutoHeight
+  useScrollAreaContext: typeof useScrollAreaContext
 };
 
 const ScrollArea = InternalCompoundedScrollArea as CompoundedComponent;
 
-ScrollArea.useScrollAreaContext = useScrollAreaContext;
+ScrollArea.AutoHeight = AutoHeight
+ScrollArea.useScrollAreaContext = useScrollAreaContext
 ScrollArea.displayName = Root.displayName
 
 export default ScrollArea;
