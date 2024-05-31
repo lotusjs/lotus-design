@@ -43,18 +43,15 @@ async function run() {
     // 编译 类型
     const { execa } = await import('execa')
 
-    await execa('pnpm', ['tsc', '--project', 'tsconfig.build.json'], {
+    await execa('pnpm', ['tsc', '--project', 'tsconfig.build.json', '--outDir', 'es'], {
       cwd,
       stdio: 'inherit',
     })
-    try {
-      fs.cpSync(
-        join(cwd, 'types', 'index.d.ts'),
-        join(cwd, 'types', 'index.d.mts'),
-      )
-    } catch {
-      console.log('No .dts file found')
-    }
+
+    await execa('pnpm', ['tsc', '--project', 'tsconfig.build.json', '--outDir', 'lib'], {
+      cwd,
+      stdio: 'inherit',
+    })
 
     // 编译样式
     await buildStyle({

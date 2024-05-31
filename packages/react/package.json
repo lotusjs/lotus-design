@@ -19,18 +19,18 @@
     ".": {
       "source": "./src/index.ts",
       "import": {
-        "types": "./types/index.d.ts",
+        "types": "./es/index.d.ts",
         "default": "./es/index.mjs"
       },
       "require": {
-        "types": "./types/index.d.ts",
+        "types": "./lib/index.d.ts",
         "default": "./lib/index.cjs"
       }
     }
   },
   "main": "lib/index.cjs",
   "module": "es/index.mjs",
-  "types": "types/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
     "es",
     "lib",
