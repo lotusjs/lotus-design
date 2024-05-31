@@ -8,6 +8,7 @@
   "scripts": {
     "bootstrap": "pnpm install",
     "start": "pnpm --filter=website run start",
+    "build:primitives": "pnpm --filter=@lotus-design/react-primitives run build",
     "build:react": "pnpm --filter=@sensoro-design/react run build",
     "example:vite": "pnpm --filter=@example/vite run start",
     "test": "vitest",

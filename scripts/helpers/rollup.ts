@@ -64,7 +64,9 @@ export async function getRollupConfig(options: Options): Promise<RollupOptions> 
 
   const entries = await glob(source, {
     ignore: [
-      'src/**/style/*.ts'
+      'src/**/style/*.ts',
+      'src/**/*.test.ts',
+      'src/**/*.test.tsx'
     ]
   })
 

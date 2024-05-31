@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import classnames from '@pansy/classnames'
-import { Root, Viewport, Corner, useScrollAreaContext, AutoHeight } from '@lotus-design/react-primitives/scroll-area'
+import { Root, Viewport, Corner, useScrollAreaContext, AutoHeight } from '@lotus-design/react-primitives/es/scroll-area'
 import { ScrollBar } from './ScrollBar'
 import { useConfigContext } from '../config'
 import type { ScrollAreaProps } from './interface'

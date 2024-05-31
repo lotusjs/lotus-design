@@ -2,20 +2,18 @@
   "name": "@lotus-design/react-primitives",
   "version": "1.0.0",
   "files": [
-    "compose-refs",
-    "context",
-    "direction",
-    "hooks",
-    "presence",
-    "primitive",
-    "scroll-area",
-    "slot",
+    "es",
+    "lib",
+    "types",
     "README.md"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/lotusjs/lotus-design.git",
     "directory": "packages/primitives"
+  },
+  "scripts": {
+    "build": "walrus build"
   },
   "sideEffects": false,
   "license": "MIT",

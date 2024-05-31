@@ -1,4 +1,4 @@
-import { createContext } from '@lotus-design/react-primitives/context'
+import { createContext } from '@lotus-design/react-primitives/es/context'
 
 interface ConfigContextValue {
   prefixCls?: string;

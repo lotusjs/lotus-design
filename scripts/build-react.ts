@@ -3,6 +3,8 @@ import { join } from 'node:path'
 import * as rollup from 'rollup'
 import { nextTask } from './helpers/nextTask'
 import { getRollupConfig } from './helpers/rollup'
+import { buildStyle } from './tasks/buildStyle'
+import { buildImportStyleFile } from './tasks/buildImportStyleFile'
 
 import type { Alias } from '@rollup/plugin-alias'
 
@@ -41,14 +43,31 @@ async function run() {
     // 编译 类型
     const { execa } = await import('execa')
 
-    await execa('pnpm', ['tsc', '--project', 'tsconfig.build.json', '--outDir', 'es'], {
+    await execa('pnpm', ['tsc', '--project', 'tsconfig.build.json'], {
       cwd,
       stdio: 'inherit',
     })
+    try {
+      fs.cpSync(
+        join(cwd, 'types', 'index.d.ts'),
+        join(cwd, 'types', 'index.d.mts'),
+      )
+    } catch {
+      console.log('No .dts file found')
+    }
 
-    await execa('pnpm', ['tsc', '--project', 'tsconfig.build.json', '--outDir', 'lib'], {
+    // 编译样式
+    await buildStyle({
       cwd,
-      stdio: 'inherit',
+      esDir,
+      libDir,
+    })
+
+    //
+    await buildImportStyleFile({
+      cwd,
+      esDir,
+      libDir,
     })
   });
 }
