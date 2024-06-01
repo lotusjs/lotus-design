@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
-import { Primitive } from '../primitive'
+import { Primitive, type ComponentPropsWithoutRef } from '../primitive'
 
 type AspectRatioElement = React.ElementRef<typeof Primitive.div>;
-type PrimitiveDivProps = React.ComponentPropsWithoutRef<typeof Primitive.div>;
+type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
 interface AspectRatioProps extends PrimitiveDivProps {
   ratio?: number;
 }
