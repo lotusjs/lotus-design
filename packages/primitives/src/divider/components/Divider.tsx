@@ -2,9 +2,9 @@ import React, { forwardRef } from 'react'
 import { Primitive } from '../../primitive'
 import { NAME, DEFAULT_ORIENTATION } from '../constants'
 import { isValidOrientation } from '../utils'
-import type { SeparatorElement, SeparatorProps } from '../types'
+import type { SeparatorElement, DividerProps } from '../types'
 
-export const Separator = forwardRef<SeparatorElement, SeparatorProps>(
+export const Divider = forwardRef<SeparatorElement, DividerProps>(
   (props, forwardedRef) => {
     const { decorative, orientation: orientationProp = DEFAULT_ORIENTATION, ...domProps } = props;
     const orientation = isValidOrientation(orientationProp) ? orientationProp : DEFAULT_ORIENTATION;
@@ -24,4 +24,4 @@ export const Separator = forwardRef<SeparatorElement, SeparatorProps>(
   }
 );
 
-Separator.displayName = NAME;
+Divider.displayName = NAME;

@@ -3,9 +3,9 @@ import { ORIENTATIONS } from './constants'
 
 export type Orientation = typeof ORIENTATIONS[number];
 export type SeparatorElement = React.ElementRef<typeof Primitive.div>;
-export type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
+export type DividerDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
 
-export interface SeparatorProps extends PrimitiveDivProps {
+export interface DividerProps extends DividerDivProps {
   /**
    * Either `vertical` or `horizontal`. Defaults to `horizontal`.
    */
