@@ -1,9 +1,9 @@
-import { Primitive, type ComponentPropsWithoutRef } from '../primitive'
+import { Primitive } from '../primitive'
 import { ORIENTATIONS } from './constants'
 
 export type Orientation = typeof ORIENTATIONS[number];
 export type SeparatorElement = React.ElementRef<typeof Primitive.div>;
-export type DividerDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
+export type DividerDivProps = React.ComponentPropsWithoutRef<typeof Primitive.div>;
 
 export interface DividerProps extends DividerDivProps {
   /**

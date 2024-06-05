@@ -1,4 +1,4 @@
-import { Primitive, type ComponentPropsWithoutRef } from '../primitive';
+import { Primitive } from '../primitive';
 import type { Scope } from '../context'
 
 export type Direction = 'ltr' | 'rtl';
@@ -14,7 +14,7 @@ export type Sizes = {
 
 export type ScrollAreaElement = React.ElementRef<typeof Primitive.div>;
 export type ScrollAreaViewportElement = React.ElementRef<typeof Primitive.div>;
-export type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
+export type PrimitiveDivProps = React.ComponentPropsWithoutRef<typeof Primitive.div>;
 export type ScrollAreaThumbImplElement = React.ElementRef<typeof Primitive.div>;
 export type ScrollAreaCornerImplElement = React.ElementRef<typeof Primitive.div>;
 
