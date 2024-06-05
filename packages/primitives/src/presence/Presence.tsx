@@ -1,6 +1,7 @@
 import React, { Children, cloneElement } from 'react';
 import { useComposedRefs } from '../compose-refs';
 import { usePresence } from './usePresence'
+import { getElementRef } from './utils'
 
 export interface PresenceProps {
   children: React.ReactElement | ((props: { present: boolean }) => React.ReactElement);
@@ -17,7 +18,7 @@ export const Presence = (props: PresenceProps) => {
       : Children.only(children)
   ) as React.ReactElement;
 
-  const ref = useComposedRefs(presence.ref, (child as any).ref);
+  const ref = useComposedRefs(presence.ref, getElementRef(child));
   const forceMount = typeof children === 'function';
   return forceMount || presence.isPresent ? cloneElement(child, { ref }) : null;
 };
