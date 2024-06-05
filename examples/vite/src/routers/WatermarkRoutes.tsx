@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom'
 import Basic from '@/pages/watermark/basic'
 import type { RouteObject } from './types';
 
-const ScrollAreaRoutes: RouteObject = {
+const WatermarkRoutes: RouteObject = {
   path: '/watermark',
   children: [
     {
@@ -16,4 +16,4 @@ const ScrollAreaRoutes: RouteObject = {
   ],
 }
 
-export default ScrollAreaRoutes;
+export default WatermarkRoutes;
