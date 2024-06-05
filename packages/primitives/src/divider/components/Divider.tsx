@@ -13,14 +13,14 @@ export const Divider = forwardRef<SeparatorElement, DividerProps>(
       ? { role: 'none' }
       : { 'aria-orientation': ariaOrientation, role: 'separator' };
 
-      return (
-        <Primitive.div
-          data-orientation={orientation}
-          {...semanticProps}
-          {...domProps}
-          ref={forwardedRef}
-        />
-      );
+    return (
+      <Primitive.div
+        data-orientation={orientation}
+        {...semanticProps}
+        {...domProps}
+        ref={forwardedRef}
+      />
+    );
   }
 );
 

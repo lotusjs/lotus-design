@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import classNames from '@pansy/classnames'
-import * as SeparatorPrimitive from '@lotus-design/react-primitives/es/separator'
+import * as SeparatorPrimitive from '@lotus-design/react-primitives/es/divider'
 import { useConfigContext } from '../config'
 
 export const Divider = forwardRef<
