@@ -13,7 +13,7 @@
 
 ## 组件效果
 
-<image src="../ScrollArea.webp"></image>
+<image src="../../ScrollArea.webp"></image>
 
 ## 如何使用
 
