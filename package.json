@@ -1,5 +1,5 @@
 {
-  "name": "sensoro-design",
+  "name": "@sensoro-design/monorepo",
   "private": true,
   "packageManager": "pnpm@8.15.8",
   "engines": {
@@ -18,7 +18,8 @@
     "lint:fix": "nr lint --fix",
     "prepare": "husky || true",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "major": "taze minor -wIr"
   },
   "license": "MIT",
   "devDependencies": {
@@ -83,6 +84,7 @@
     "stylelint-config-standard": "^36.0.0",
     "stylelint-order": "^6.0.4",
     "stylelint-prettier": "^5.0.0",
+    "taze": "^0.13.8",
     "tsx": "^4.10.1",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0",
