@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import classNames from '@pansy/classnames'
+import { clsx } from 'clsx'
 import { Root, Viewport, Corner, useScrollAreaContext, AutoHeight } from '@lotus-design/react-primitives/es/scroll-area'
 import { ScrollBar } from './ScrollBar'
 import { useConfigContext } from '../config'
@@ -25,7 +25,7 @@ const InternalCompoundedScrollArea = forwardRef<
   return (
     <Root
       ref={ref}
-      className={classNames(
+      className={clsx(
         prefixCls,
         {
           [`${prefixCls}-small`]: size === 'small',

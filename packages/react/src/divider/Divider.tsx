@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import classNames from '@pansy/classnames'
+import { clsx } from 'clsx'
 import * as SeparatorPrimitive from '@lotus-design/react-primitives/es/divider'
 import { useConfigContext } from '../config'
 
@@ -18,7 +18,7 @@ export const Divider = forwardRef<
       ref={ref}
       decorative={decorative}
       orientation={orientation}
-      className={classNames(
+      className={clsx(
         prefixCls,
         className,
       )}

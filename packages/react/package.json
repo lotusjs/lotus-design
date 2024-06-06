@@ -63,9 +63,9 @@
     }
   },
   "dependencies": {
-    "@lotus-design/react-primitives": "workspace:^",
-    "@pansy/classnames": "^1.0.1",
+    "@lotus-design/react-primitives": "^0.0.1",
     "@rcuse/core": "^0.19.0",
+    "clsx": "^2.1.1",
     "dayjs": "^1.11.11"
   },
   "publishConfig": {
