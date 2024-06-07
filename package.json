@@ -11,6 +11,7 @@
     "build:primitives": "pnpm --filter=@lotus-design/react-primitives run build",
     "build:react": "pnpm --filter=@sensoro-design/react run build",
     "example:vite": "pnpm --filter=@example/vite run start",
+    "release": "pnpm release:build && release:version && release:publish:next",
     "release:changed": "lerna changed",
     "release:version": "lerna version --no-private",
     "release:build": "lerna run --concurrency 8 --no-private build --skip-nx-cache",
