@@ -59,9 +59,6 @@ importers:
       '@types/gulp-rename':
         specifier: ^2.0.6
         version: 2.0.6
-      '@types/gulp-typescript':
-        specifier: ^2.13.0
-        version: 2.13.0(typescript@5.4.5)
       '@types/node':
         specifier: ^20.12.12
         version: 20.12.12
@@ -206,6 +203,9 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
+      vite:
+        specifier: ^5.2.0
+        version: 5.2.13(@types/node@20.12.12)(less@4.2.0)
       vitest:
         specifier: ^1.6.0
         version: 1.6.0(@types/node@20.12.12)(@vitest/ui@1.6.0)(jsdom@24.1.0)(less@4.2.0)
@@ -5071,7 +5071,7 @@ packages:
   /@types/conventional-commits-parser@5.0.0:
     resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
     dev: true
 
   /@types/debug@4.1.12:
@@ -5126,14 +5126,14 @@ packages:
     requiresBuild: true
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
     dev: true
     optional: true
 
   /@types/glob-stream@8.0.2:
     resolution: {integrity: sha512-kyuRfGE+yiSJWzSO3t74rXxdZNdYfLcllO0IUha4eX1fl40pm9L02Q/TEc3mykTLjoWz4STBNwYnUWdFu3I0DA==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
       '@types/picomatch': 2.3.3
       '@types/streamx': 2.9.5
     dev: true
@@ -5154,15 +5154,6 @@ packages:
     dependencies:
       '@types/node': 20.12.12
       '@types/vinyl': 2.0.12
-    dev: true
-
-  /@types/gulp-typescript@2.13.0(typescript@5.4.5):
-    resolution: {integrity: sha512-LKtclXKmzr4qvxoG/Z9ysRxNCUlU3CpXk2NFxwAONQ5u5cAfsmBZnZP39s2mRwAy+IYTmCGEIOOjlMsct9A6uA==}
-    deprecated: This is a stub types definition for gulp-typescript (https://github.com/ivogabe/gulp-typescript). gulp-typescript provides its own type definitions, so you don't need @types/gulp-typescript installed!
-    dependencies:
-      gulp-typescript: 6.0.0-alpha.1(typescript@5.4.5)
-    transitivePeerDependencies:
-      - typescript
     dev: true
 
   /@types/gulp@4.0.17:
@@ -5223,7 +5214,7 @@ packages:
     resolution: {integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
     dev: true
     optional: true
 
@@ -5387,7 +5378,7 @@ packages:
   /@types/streamx@2.9.5:
     resolution: {integrity: sha512-IHYsa6jYrck8VEdSwpY141FTTf6D7boPeMq9jy4qazNrFMA4VbRz/sw5LSsfR7jwdDcx0QKWkUexZvsWBC2eIQ==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
     dev: true
 
   /@types/undertaker-registry@1.0.4:
@@ -5397,7 +5388,7 @@ packages:
   /@types/undertaker@1.2.11:
     resolution: {integrity: sha512-j1Z0V2ByRHr8ZK7eOeGq0LGkkdthNFW0uAZGY22iRkNQNL9/vAV0yFPr1QN3FM/peY5bxs9P+1f0PYJTQVa5iA==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
       '@types/undertaker-registry': 1.0.4
       async-done: 1.3.2
     dev: true
@@ -5412,7 +5403,7 @@ packages:
     resolution: {integrity: sha512-ckYz9giHgV6U10RFuf9WsDQ3X86EFougapxHmmoxLK7e6ICQqO8CE+4V/3lBN148V5N1pb4nQMmMjyScleVsig==}
     dependencies:
       '@types/glob-stream': 8.0.2
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
       '@types/vinyl': 2.0.12
     dev: true
 
@@ -5420,7 +5411,7 @@ packages:
     resolution: {integrity: sha512-Sr2fYMBUVGYq8kj3UthXFAu5UN6ZW+rYr4NACjZQJvHvj+c8lYv0CahmZ2P/r7iUkN44gGUBwqxZkrKXYPb7cw==}
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
     dev: true
 
   /@types/ws@8.5.10:
@@ -5443,7 +5434,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
     dev: true
     optional: true
 
@@ -11236,7 +11227,7 @@ packages:
     hasBin: true
     dependencies:
       async: 3.2.5
-      chalk: 4.1.0
+      chalk: 4.1.2
       filelist: 1.0.4
       minimatch: 3.1.2
     dev: true
@@ -11245,7 +11236,7 @@ packages:
     resolution: {integrity: sha512-LMIgiIrhigmPrs03JHpxUh2yISK3vLFPkAodPeo0+BuF7wA2FoQbkEg1u8gBYBThncu7e1oEDUfIXVuTqLRUjw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      chalk: 4.1.0
+      chalk: 4.1.2
       diff-sequences: 29.6.3
       jest-get-type: 29.6.3
       pretty-format: 29.7.0
@@ -12764,6 +12755,7 @@ packages:
     resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
     engines: {node: '>=4'}
     hasBin: true
+    requiresBuild: true
 
   /mimic-fn@2.1.0:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
@@ -13347,7 +13339,7 @@ packages:
       '@yarnpkg/parsers': 3.0.0-rc.46
       '@zkochan/js-yaml': 0.0.7
       axios: 1.7.2
-      chalk: 4.1.0
+      chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       cliui: 8.0.1
@@ -13491,7 +13483,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       bl: 4.1.0
-      chalk: 4.1.0
+      chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       is-interactive: 1.0.0
@@ -15619,6 +15611,7 @@ packages:
 
   /sax@1.4.1:
     resolution: {integrity: sha512-+aWOz7yVScEGoKNd4PA10LZ8sk0A/z5+nXQG5giUO5rprX9jgYsTdov9qCchZiPIZezbZH+jRut8nPodFAX4Jg==}
+    requiresBuild: true
 
   /saxes@6.0.0:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
@@ -15714,6 +15707,7 @@ packages:
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
+    requiresBuild: true
 
   /semver@7.6.2:
     resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
@@ -18191,5 +18185,5 @@ packages:
     hasBin: true
     optionalDependencies:
       '@types/fs-extra': 11.0.4
-      '@types/node': 20.12.12
+      '@types/node': 20.14.2
     dev: true

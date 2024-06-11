@@ -47,7 +47,6 @@
     "@types/gulp": "^4.0.17",
     "@types/gulp-postcss": "^8.0.6",
     "@types/gulp-rename": "^2.0.6",
-    "@types/gulp-typescript": "^2.13.0",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -96,6 +95,7 @@
     "taze": "^0.13.8",
     "tsx": "^4.15.2",
     "typescript": "^5.4.5",
+    "vite": "^5.2.0",
     "vitest": "^1.6.0",
     "walrus": "workspace:*",
     "zx": "^8.1.2"
