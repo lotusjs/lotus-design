@@ -59,6 +59,7 @@ async function run() {
       cwd,
       esDir,
       libDir,
+      distDir,
     })
 
     //

@@ -10,10 +10,16 @@ interface Options {
   cwd?: string;
   esDir?: string;
   libDir?: string;
+  distDir?: string;
 }
 
 export async function buildStyle(opts: Options = {}) {
-  const { cwd = process.cwd(), esDir = 'es', libDir = 'lib' } = opts;
+  const {
+    cwd = process.cwd(),
+    esDir = 'es',
+    libDir = 'lib',
+    distDir = 'dist'
+  } = opts;
 
   function copyLess() {
     return gulp
@@ -42,12 +48,17 @@ export async function buildStyle(opts: Options = {}) {
     })
 
     fs.writeFileSync(
-      path.join(process.cwd(), 'lib', 'style', 'components.less'),
+      path.join(cwd, libDir, 'style', 'components.less'),
       componentsLessContent,
     );
     fs.writeFileSync(
-      path.join(process.cwd(), 'es', 'style', 'components.less'),
+      path.join(cwd, esDir, 'style', 'components.less'),
       componentsLessContent,
+    );
+
+    fs.writeFileSync(
+      path.join(cwd, distDir, 'sensoro-design.less'),
+      '@import "../es/style/index.less";\n@import "../es/style/components.less";',
     );
     cb();
   }
@@ -74,5 +85,22 @@ export async function buildStyle(opts: Options = {}) {
       .pipe(gulp.dest(`./${libDir}`))
   }
 
-  return gulp.series(gulp.parallel(copyLess, buildLess), componentLess)(() => {})
+  function buildCss() {
+    return gulp
+      .src(['./dist/**/*.less'])
+      .pipe(
+        less({
+          paths: [path.join(cwd, 'src')],
+          relativeUrls: true,
+        })
+      )
+      .pipe(
+        postcss([
+          autoprefixer(),
+        ])
+      )
+      .pipe(gulp.dest(`./${distDir}`))
+  }
+
+  return gulp.series(gulp.parallel(copyLess, buildLess), gulp.series(componentLess, buildCss))(() => {})
 }
