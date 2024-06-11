@@ -11,6 +11,8 @@ dist
 es
 lib
 
+.eslintcache
+
 # Misc
 .DS_Store
 .env.local
