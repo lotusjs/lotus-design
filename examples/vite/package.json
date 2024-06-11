@@ -1,8 +1,8 @@
 {
   "name": "@example/vite",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
