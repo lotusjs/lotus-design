@@ -32,10 +32,9 @@
   "module": "es/index.mjs",
   "types": "es/index.d.ts",
   "files": [
-    "es",
-    "lib",
     "dist",
-    "README.md"
+    "es",
+    "lib"
   ],
   "repository": {
     "type": "git",
@@ -43,6 +42,7 @@
     "directory": "packages/lotus-design"
   },
   "sideEffects": [
+    "dist/*",
     "es/**/style/*",
     "lib/**/style/*",
     "*.less"
