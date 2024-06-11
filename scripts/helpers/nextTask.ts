@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import ora from 'ora';
 
-const spinner = ora({ hideCursor: false }).start();
+const spinner = ora({ hideCursor: false });
 
 export async function nextTask(label: string, action: () => Promise<any>) {
   spinner.text = label;

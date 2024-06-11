@@ -5,6 +5,7 @@ import { nextTask } from './helpers/nextTask'
 import { getRollupConfig } from './helpers/rollup'
 import { buildStyle } from './tasks/buildStyle'
 import { buildImportStyleFile } from './tasks/buildImportStyleFile'
+import { viteBuild } from './helpers/vite'
 
 import type { Alias } from '@rollup/plugin-alias'
 
@@ -65,6 +66,19 @@ async function run() {
       cwd,
       esDir,
       libDir,
+    })
+
+    // 编译 Umd
+    await viteBuild({
+      cwd,
+      distDir,
+      minify: false,
+    })
+
+    await viteBuild({
+      cwd,
+      distDir,
+      minify: true,
     })
   });
 }

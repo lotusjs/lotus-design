@@ -1,9 +1,12 @@
 {
   "name": "@sensoro-design/react",
-  "version": "2.0.0-alpha.1",
   "type": "module",
-  "scripts": {
-    "build": "walrus build-react"
+  "version": "2.0.0-alpha.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lotusjs/lotus-design.git",
+    "directory": "packages/lotus-design"
   },
   "keywords": [
     "react",
@@ -14,6 +17,12 @@
     "sensoro",
     "sensoro-design",
     "ui"
+  ],
+  "sideEffects": [
+    "dist/*",
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.less"
   ],
   "exports": {
     ".": {
@@ -36,18 +45,9 @@
     "es",
     "lib"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lotusjs/lotus-design.git",
-    "directory": "packages/lotus-design"
+  "scripts": {
+    "build": "walrus build-react"
   },
-  "sideEffects": [
-    "dist/*",
-    "es/**/style/*",
-    "lib/**/style/*",
-    "*.less"
-  ],
-  "license": "MIT",
   "peerDependencies": {
     "@types/react": "*",
     "@types/react-dom": "*",
