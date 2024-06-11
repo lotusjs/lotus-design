@@ -2,6 +2,7 @@
   "name": "@sensoro-design/monorepo",
   "private": true,
   "packageManager": "pnpm@8.15.8",
+  "license": "MIT",
   "engines": {
     "node": "^18.0.0 || >=20.0.0"
   },
@@ -28,7 +29,6 @@
     "preinstall": "npx only-allow pnpm",
     "major": "taze minor -wIr"
   },
-  "license": "MIT",
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.0",
     "@antfu/ni": "^0.21.12",
