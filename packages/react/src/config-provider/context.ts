@@ -1,4 +1,4 @@
-import { createContext } from '@lotus-design/react-primitives/es/context'
+import { createContext } from '@lotus-design/react-primitives/es/context';
 
 interface ConfigContextValue {
   prefixCls?: string;
@@ -16,4 +16,4 @@ const [ConfigContextProvider, useConfigContext] = createContext<ConfigContextVal
 export {
   ConfigContextProvider,
   useConfigContext,
-}
+};

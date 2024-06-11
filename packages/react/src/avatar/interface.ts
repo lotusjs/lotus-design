@@ -1,7 +1,9 @@
-import React from 'react';
-import * as AvatarPrimitive from '@lotus-design/react-primitives/es/avatar'
+import type React from 'react';
+import type {
+  AvatarProps as AvatarPrimitiveProps,
+} from '@lotus-design/react-primitives/es/avatar';
 
-export interface AvatarProps extends AvatarPrimitive.AvatarProps {
+export interface AvatarProps extends AvatarPrimitiveProps {
   icon?: React.ReactNode;
   shape?: 'circle' | 'square';
   src?: string;

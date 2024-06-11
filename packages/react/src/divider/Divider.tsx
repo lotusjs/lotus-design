@@ -1,14 +1,14 @@
 import React, { forwardRef } from 'react';
-import { clsx } from 'clsx'
-import * as SeparatorPrimitive from '@lotus-design/react-primitives/es/divider'
-import { useConfigContext } from '../config'
+import { clsx } from 'clsx';
+import * as SeparatorPrimitive from '@lotus-design/react-primitives/es/divider';
+import { useConfigContext } from '../config-provider';
 
 export const Divider = forwardRef<
   React.ElementRef<typeof SeparatorPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
 >((
   { className, orientation = 'horizontal', decorative = true, ...props },
-  ref
+  ref,
 ) => {
   const { getPrefixCls } = useConfigContext('Divider');
   const prefixCls = getPrefixCls!('divider');
@@ -24,5 +24,5 @@ export const Divider = forwardRef<
       )}
       {...props}
     />
-  )
-})
+  );
+});
