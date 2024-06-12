@@ -57,7 +57,7 @@ export async function buildStyle(opts: Options = {}) {
     );
 
     fs.writeFileSync(
-      path.join(cwd, distDir, 'sensoro-design.less'),
+      path.join(cwd, distDir, 'sensoro.less'),
       '@import "../es/style/index.less";\n@import "../es/style/components.less";',
     );
     cb();
