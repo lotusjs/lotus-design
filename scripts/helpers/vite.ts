@@ -17,7 +17,7 @@ const external = Object.keys(globals);
 
 export async function viteBuild(options: Options = {}) {
   const {
-    target = ['es2016', 'edge88', 'firefox78', 'chrome87', 'safari14'],
+    target = ['es2015', 'edge88', 'firefox78', 'chrome87', 'safari14'],
     cwd = process.cwd(),
     distDir = 'dist',
     minify = false,
@@ -27,6 +27,7 @@ export async function viteBuild(options: Options = {}) {
 
   build({
     root: cwd,
+    mode: 'production',
     plugins: [],
     css: {
       preprocessorOptions: {
