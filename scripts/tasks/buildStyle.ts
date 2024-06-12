@@ -3,6 +3,8 @@ import fs from 'node:fs'
 import gulp from 'gulp'
 // @ts-ignore
 import less from 'gulp-less'
+import cleanCss from 'gulp-clean-css'
+import rename from 'gulp-rename'
 import postcss from 'gulp-postcss'
 import autoprefixer from 'autoprefixer'
 
@@ -99,6 +101,15 @@ export async function buildStyle(opts: Options = {}) {
           autoprefixer(),
         ])
       )
+      .pipe(gulp.dest(`./${distDir}`))
+      .pipe(cleanCss({ }))
+      .pipe(rename((path) => {
+        return {
+          dirname: path.dirname,
+          basename: path.basename + ".min",
+          extname: '.css'
+        }
+      }))
       .pipe(gulp.dest(`./${distDir}`))
   }
 
