@@ -40,7 +40,7 @@ export async function viteBuild(options: Options = {}) {
       target,
       lib: {
         entry,
-        name: 'sen',
+        name: 'sensoro',
         fileName: () => {
           return !minify ? 'sensoro.development.js' : 'sensoro.production.min.js';
         },
