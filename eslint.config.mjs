@@ -8,6 +8,9 @@ export default antfu(
     },
     ignores: [
       'scripts',
+      'es',
+      'lib',
+      'dist'
     ],
   },
 );
