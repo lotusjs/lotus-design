@@ -1,10 +1,10 @@
-import { join, dirname, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   createStyleImportPlugin,
-} from 'vite-plugin-style-import'
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+} from 'vite-plugin-style-import';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -19,15 +19,15 @@ export default defineConfig({
     alias: [
       {
         find: '@lotus-design/react-primitives/es',
-        replacement: primitivesDir
+        replacement: primitivesDir,
       },
       {
         find: '@sensoro-design/react',
-        replacement: lotusDesignDir
+        replacement: lotusDesignDir,
       },
       {
         find: /@\//,
-        replacement: pathResolve('src') + '/',
+        replacement: `${pathResolve('src')}/`,
       },
     ],
   },
@@ -45,13 +45,13 @@ export default defineConfig({
         {
           libraryName: '@sensoro-design/react',
           resolveStyle: (name) => {
-            return join(lotusDesignDir, name, 'style')
+            return join(lotusDesignDir, name, 'style');
           },
         },
       ],
-    })
+    }),
   ],
   server: {
-    port: 8000
-  }
-})
+    port: 8000,
+  },
+});
