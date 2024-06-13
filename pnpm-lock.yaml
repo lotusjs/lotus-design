@@ -273,7 +273,7 @@ importers:
   packages/react:
     dependencies:
       "@lotus-design/react-primitives":
-        specifier: ^0.0.2-alpha.1
+        specifier: ^0.0.2-alpha.2
         version: link:../primitives
       "@rcuse/core":
         specifier: ^0.19.0
