@@ -1,10 +1,10 @@
-import React, { forwardRef } from 'react'
-import { useScrollbarContext } from '../context'
-import { THUMB_NAME } from '../constants'
-import { Presence } from '../../presence'
-import { ScrollAreaThumbImpl } from './ScrollAreaThumbImpl'
-import type { ScrollAreaThumbImplProps } from './ScrollAreaThumbImpl'
-import type { ScopedProps, ScrollAreaThumbElement } from '../types'
+import React, { forwardRef } from 'react';
+import { useScrollbarContext } from '../context';
+import { THUMB_NAME } from '../constants';
+import { Presence } from '../../presence';
+import type { ScopedProps, ScrollAreaThumbElement } from '../types';
+import { ScrollAreaThumbImpl } from './ScrollAreaThumbImpl';
+import type { ScrollAreaThumbImplProps } from './ScrollAreaThumbImpl';
 
 export interface ScrollAreaThumbProps extends ScrollAreaThumbImplProps {
   forceMount?: true;
@@ -19,5 +19,5 @@ export const ScrollAreaThumb = forwardRef<ScrollAreaThumbElement, ScrollAreaThum
         <ScrollAreaThumbImpl ref={forwardedRef} {...thumbProps} />
       </Presence>
     );
-  }
+  },
 );

@@ -1,10 +1,10 @@
-import React, { forwardRef, useState, useEffect } from 'react'
-import { useScrollAreaContext } from '../context'
-import { Presence } from '../../presence'
-import { SCROLLBAR_NAME } from '../constants'
-import { ScrollAreaScrollbarAuto } from './ScrollAreaScrollbarAuto'
-import type { ScrollAreaScrollbarHoverElement, ScopedProps } from '../types'
-import type { ScrollAreaScrollbarAutoProps } from './ScrollAreaScrollbarAuto'
+import React, { forwardRef, useEffect, useState } from 'react';
+import { useScrollAreaContext } from '../context';
+import { Presence } from '../../presence';
+import { SCROLLBAR_NAME } from '../constants';
+import type { ScopedProps, ScrollAreaScrollbarHoverElement } from '../types';
+import { ScrollAreaScrollbarAuto } from './ScrollAreaScrollbarAuto';
+import type { ScrollAreaScrollbarAutoProps } from './ScrollAreaScrollbarAuto';
 
 interface ScrollAreaScrollbarHoverProps extends ScrollAreaScrollbarAutoProps {
   forceMount?: true;
@@ -49,5 +49,5 @@ export const ScrollAreaScrollbarHover = forwardRef<
         />
       </Presence>
     );
-  }
-)
+  },
+);

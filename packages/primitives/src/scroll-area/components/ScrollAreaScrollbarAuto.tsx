@@ -1,15 +1,15 @@
-import React, { forwardRef, useState } from 'react'
-import { useResizeObserver } from '@rcuse/core'
-import { useScrollAreaContext } from '../context'
-import { SCROLLBAR_NAME } from '../constants'
-import { Presence } from '../../presence'
-import { useDebounceCallback } from '../../hooks/useDebounceCallback'
-import { ScrollAreaScrollbarVisible } from './ScrollAreaScrollbarVisible'
+import React, { forwardRef, useState } from 'react';
+import { useResizeObserver } from '@rcuse/core';
+import { useScrollAreaContext } from '../context';
+import { SCROLLBAR_NAME } from '../constants';
+import { Presence } from '../../presence';
+import { useDebounceCallback } from '../../hooks/useDebounceCallback';
 import type {
-  ScrollAreaScrollbarAutoElement,
   ScopedProps,
-} from '../types'
-import type { ScrollAreaScrollbarVisibleProps } from './ScrollAreaScrollbarVisible'
+  ScrollAreaScrollbarAutoElement,
+} from '../types';
+import { ScrollAreaScrollbarVisible } from './ScrollAreaScrollbarVisible';
+import type { ScrollAreaScrollbarVisibleProps } from './ScrollAreaScrollbarVisible';
 
 export interface ScrollAreaScrollbarAutoProps extends ScrollAreaScrollbarVisibleProps {
   forceMount?: true;
@@ -44,5 +44,5 @@ export const ScrollAreaScrollbarAuto = forwardRef<
         />
       </Presence>
     );
-  }
-)
+  },
+);

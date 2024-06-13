@@ -1,11 +1,11 @@
-import React, { forwardRef } from 'react'
-import { CORNER_NAME } from '../constants'
-import { useScrollAreaContext } from '../context'
-import { ScrollAreaCornerImpl, type ScrollAreaCornerImplProps } from './ScrollAreaCornerImpl'
+import React, { forwardRef } from 'react';
+import { CORNER_NAME } from '../constants';
+import { useScrollAreaContext } from '../context';
 import type {
-  ScrollAreaCornerElement,
   ScopedProps,
-} from '../types'
+  ScrollAreaCornerElement,
+} from '../types';
+import { ScrollAreaCornerImpl, type ScrollAreaCornerImplProps } from './ScrollAreaCornerImpl';
 
 export interface ScrollAreaCornerProps extends ScrollAreaCornerImplProps {}
 
@@ -15,5 +15,5 @@ export const ScrollAreaCorner = forwardRef<ScrollAreaCornerElement, ScrollAreaCo
     const hasBothScrollbarsVisible = Boolean(context.scrollbarX && context.scrollbarY);
     const hasCorner = context.type !== 'scroll' && hasBothScrollbarsVisible;
     return hasCorner ? <ScrollAreaCornerImpl {...props} ref={forwardedRef} /> : null;
-  }
+  },
 );

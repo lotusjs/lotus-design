@@ -1,12 +1,12 @@
-import React, { forwardRef, useRef } from 'react'
-import { useScrollAreaContext } from '../context'
-import { Primitive } from '../../primitive'
-import { useComposedRefs } from '../../compose-refs'
+import React, { forwardRef, useRef } from 'react';
+import { useScrollAreaContext } from '../context';
+import { Primitive } from '../../primitive';
+import { useComposedRefs } from '../../compose-refs';
 import type {
   PrimitiveDivProps,
-  ScrollAreaViewportElement,
   ScopedProps,
-} from '../types'
+  ScrollAreaViewportElement,
+} from '../types';
 
 const VIEWPORT_NAME = 'ScrollAreaViewport';
 
@@ -23,6 +23,7 @@ export const ScrollAreaViewport = forwardRef<ScrollAreaViewportElement, ScrollAr
 
     return (
       <>
+        {/* eslint-disable-next-line react-dom/no-dangerously-set-innerhtml */}
         <style
           dangerouslySetInnerHTML={{
             __html: `[data-lotus-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-lotus-scroll-area-viewport]::-webkit-scrollbar{display:none}`,
@@ -45,8 +46,8 @@ export const ScrollAreaViewport = forwardRef<ScrollAreaViewportElement, ScrollAr
           </div>
         </Primitive.div>
       </>
-    )
-  }
-)
+    );
+  },
+);
 
 ScrollAreaViewport.displayName = VIEWPORT_NAME;

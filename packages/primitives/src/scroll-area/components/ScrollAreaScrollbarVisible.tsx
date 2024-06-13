@@ -1,18 +1,17 @@
-import React, { useRef, forwardRef, useState } from 'react'
-import { useScrollAreaContext } from '../context'
-import { getThumbRatio, getScrollPositionFromPointer } from '../utils'
-import { ScrollAreaScrollbarX } from './ScrollAreaScrollbarX'
-import { ScrollAreaScrollbarY } from './ScrollAreaScrollbarY'
-import { getThumbOffsetFromScroll } from '../utils'
+import React, { forwardRef, useRef, useState } from 'react';
+import { useScrollAreaContext } from '../context';
+import { getScrollPositionFromPointer, getThumbOffsetFromScroll, getThumbRatio } from '../utils';
 import type {
-  Sizes,
   Direction,
-  ScrollAreaThumbElement,
   ScopedProps,
   ScrollAreaScrollbarAxisPrivateProps,
   ScrollAreaScrollbarAxisProps,
   ScrollAreaScrollbarVisibleElement,
-} from '../types'
+  ScrollAreaThumbElement,
+  Sizes,
+} from '../types';
+import { ScrollAreaScrollbarX } from './ScrollAreaScrollbarX';
+import { ScrollAreaScrollbarY } from './ScrollAreaScrollbarY';
 
 const SCROLLBAR_NAME = 'ScrollAreaScrollbar';
 
@@ -43,9 +42,9 @@ export const ScrollAreaScrollbarVisible = forwardRef<
       sizes,
       onSizesChange: setSizes,
       hasThumb: Boolean(thumbRatio > 0 && thumbRatio < 1),
-      onThumbChange: (thumb) => (thumbRef.current = thumb),
+      onThumbChange: thumb => (thumbRef.current = thumb),
       onThumbPointerUp: () => (pointerOffsetRef.current = 0),
-      onThumbPointerDown: (pointerPos) => (pointerOffsetRef.current = pointerPos),
+      onThumbPointerDown: pointerPos => (pointerOffsetRef.current = pointerPos),
     };
 
     function getScrollPosition(pointerPos: number, dir?: Direction) {
@@ -65,7 +64,8 @@ export const ScrollAreaScrollbarVisible = forwardRef<
             }
           }}
           onWheelScroll={(scrollPos) => {
-            if (context.viewport) context.viewport.scrollLeft = scrollPos;
+            if (context.viewport)
+              context.viewport.scrollLeft = scrollPos;
           }}
           onDragScroll={(pointerPos) => {
             if (context.viewport) {
@@ -89,16 +89,17 @@ export const ScrollAreaScrollbarVisible = forwardRef<
             }
           }}
           onWheelScroll={(scrollPos) => {
-            if (context.viewport) context.viewport.scrollTop = scrollPos;
+            if (context.viewport)
+              context.viewport.scrollTop = scrollPos;
           }}
           onDragScroll={(pointerPos) => {
-            if (context.viewport) context.viewport.scrollTop = getScrollPosition(pointerPos);
+            if (context.viewport)
+              context.viewport.scrollTop = getScrollPosition(pointerPos);
           }}
         />
       );
     }
 
     return null;
-  }
-)
-
+  },
+);

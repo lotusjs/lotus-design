@@ -1,18 +1,18 @@
-import React, { forwardRef, useRef, useEffect, useState } from 'react'
-import { useScrollAreaContext } from '../context'
-import { useComposedRefs } from '../../compose-refs'
-import { SCROLLBAR_NAME } from '../constants'
-import { ScrollAreaScrollbarImpl } from './ScrollAreaScrollbarImpl'
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import { useScrollAreaContext } from '../context';
+import { useComposedRefs } from '../../compose-refs';
+import { SCROLLBAR_NAME } from '../constants';
 import {
   getThumbSize,
   isScrollingWithinScrollbarBounds,
   toInt,
-} from '../utils'
+} from '../utils';
 import type {
   ScopedProps,
   ScrollAreaScrollbarAxisElement,
-  ScrollAreaScrollbarAxisProps
-} from '../types'
+  ScrollAreaScrollbarAxisProps,
+} from '../types';
+import { ScrollAreaScrollbarImpl } from './ScrollAreaScrollbarImpl';
 
 export const ScrollAreaScrollbarY = forwardRef<
   ScrollAreaScrollbarAxisElement,
@@ -25,7 +25,8 @@ export const ScrollAreaScrollbarY = forwardRef<
   const composeRefs = useComposedRefs(forwardedRef, ref, context.onScrollbarYChange);
 
   useEffect(() => {
-    if (ref.current) setComputedStyle(getComputedStyle(ref.current));
+    if (ref.current)
+      setComputedStyle(getComputedStyle(ref.current));
   }, [ref]);
 
   return (
@@ -39,11 +40,11 @@ export const ScrollAreaScrollbarY = forwardRef<
         right: context.dir === 'ltr' ? 0 : undefined,
         left: context.dir === 'rtl' ? 0 : undefined,
         bottom: 'var(--lotus-scroll-area-corner-height)',
-        ['--lotus-scroll-area-thumb-height' as any]: getThumbSize(sizes) + 'px',
+        ['--lotus-scroll-area-thumb-height' as any]: `${getThumbSize(sizes)}px`,
         ...props.style,
       }}
-      onThumbPointerDown={(pointerPos) => props.onThumbPointerDown(pointerPos.y)}
-      onDragScroll={(pointerPos) => props.onDragScroll(pointerPos.y)}
+      onThumbPointerDown={pointerPos => props.onThumbPointerDown(pointerPos.y)}
+      onDragScroll={pointerPos => props.onDragScroll(pointerPos.y)}
       onWheelScroll={(event, maxScrollPos) => {
         if (context.viewport) {
           const scrollPos = context.viewport.scrollTop + event.deltaY;
@@ -68,5 +69,5 @@ export const ScrollAreaScrollbarY = forwardRef<
         }
       }}
     />
-  )
-})
+  );
+});

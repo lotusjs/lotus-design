@@ -1,15 +1,15 @@
-import React, { forwardRef, useRef, useEffect } from 'react'
-import { useScrollAreaContext, useScrollbarContext } from '../context'
-import { THUMB_NAME } from '../constants'
-import { Primitive, composeEventHandlers  } from '../../primitive'
-import { useDebounceCallback } from '../../hooks/useDebounceCallback'
-import { useComposedRefs } from '../../compose-refs'
-import { addUnlinkedScrollListener } from '../utils'
+import React, { forwardRef, useEffect, useRef } from 'react';
+import { useScrollAreaContext, useScrollbarContext } from '../context';
+import { THUMB_NAME } from '../constants';
+import { Primitive, composeEventHandlers } from '../../primitive';
+import { useDebounceCallback } from '../../hooks/useDebounceCallback';
+import { useComposedRefs } from '../../compose-refs';
+import { addUnlinkedScrollListener } from '../utils';
 import type {
-  ScrollAreaThumbImplElement,
-  ScopedProps,
   PrimitiveDivProps,
-} from '../types'
+  ScopedProps,
+  ScrollAreaThumbImplElement,
+} from '../types';
 
 export interface ScrollAreaThumbImplProps extends PrimitiveDivProps {}
 
@@ -19,9 +19,8 @@ export const ScrollAreaThumbImpl = forwardRef<ScrollAreaThumbImplElement, Scroll
     const scrollAreaContext = useScrollAreaContext(THUMB_NAME, __scopeScrollArea);
     const scrollbarContext = useScrollbarContext(THUMB_NAME, __scopeScrollArea);
     const { onThumbPositionChange } = scrollbarContext;
-    const composedRef = useComposedRefs(forwardedRef, (node) =>
-      scrollbarContext.onThumbChange(node)
-    );
+    const composedRef = useComposedRefs(forwardedRef, node =>
+      scrollbarContext.onThumbChange(node));
     const removeUnlinkedScrollListenerRef = useRef<() => void>();
     const debounceScrollEnd = useDebounceCallback(() => {
       if (removeUnlinkedScrollListenerRef.current) {
@@ -74,5 +73,5 @@ export const ScrollAreaThumbImpl = forwardRef<ScrollAreaThumbImplElement, Scroll
         onPointerUp={composeEventHandlers(props.onPointerUp, scrollbarContext.onThumbPointerUp)}
       />
     );
-  }
-)
+  },
+);

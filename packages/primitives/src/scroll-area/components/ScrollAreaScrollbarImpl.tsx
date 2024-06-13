@@ -1,23 +1,23 @@
-import React, { forwardRef, useState, useRef, useEffect } from 'react'
-import { useResizeObserver } from '@rcuse/core'
-import { Primitive } from '../../primitive'
-import { SCROLLBAR_NAME } from '../constants'
-import { useScrollAreaContext, ScrollbarProvider } from '../context'
-import { useComposedRefs } from '../../compose-refs'
-import { useCallbackRef } from '../../hooks/useCallbackRef'
-import { useDebounceCallback } from '../../hooks/useDebounceCallback'
-import { composeEventHandlers } from '../utils'
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import { useResizeObserver } from '@rcuse/core';
+import { Primitive } from '../../primitive';
+import { SCROLLBAR_NAME } from '../constants';
+import { ScrollbarProvider, useScrollAreaContext } from '../context';
+import { useComposedRefs } from '../../compose-refs';
+import { useCallbackRef } from '../../hooks/useCallbackRef';
+import { useDebounceCallback } from '../../hooks/useDebounceCallback';
+import { composeEventHandlers } from '../utils';
 import type {
-  ScopedProps,
-  ScrollAreaScrollbarImplElement,
   PrimitiveDivProps,
+  ScopedProps,
+  ScrollAreaScrollbarElement,
+  ScrollAreaScrollbarImplElement,
   ScrollAreaScrollbarImplPrivateProps,
-  ScrollAreaScrollbarElement
-} from '../types'
+} from '../types';
 
 interface ScrollAreaScrollbarImplProps
   extends Omit<PrimitiveDivProps, keyof ScrollAreaScrollbarImplPrivateProps>,
-    ScrollAreaScrollbarImplPrivateProps {}
+  ScrollAreaScrollbarImplPrivateProps {}
 
 export const ScrollAreaScrollbarImpl = forwardRef<
   ScrollAreaScrollbarImplElement,
@@ -39,7 +39,7 @@ export const ScrollAreaScrollbarImpl = forwardRef<
     } = props;
     const context = useScrollAreaContext(SCROLLBAR_NAME, __scopeScrollArea);
     const [scrollbar, setScrollbar] = useState<ScrollAreaScrollbarElement | null>(null);
-    const composeRefs = useComposedRefs(forwardedRef, (node) => setScrollbar(node));
+    const composeRefs = useComposedRefs(forwardedRef, node => setScrollbar(node));
 
     const rectRef = useRef<ClientRect | null>(null);
     const prevWebkitUserSelectRef = useRef<string>('');
@@ -61,7 +61,8 @@ export const ScrollAreaScrollbarImpl = forwardRef<
       const handleWheel = (event: WheelEvent) => {
         const element = event.target as HTMLElement;
         const isScrollbarWheel = scrollbar?.contains(element);
-        if (isScrollbarWheel) handleWheelScroll(event, maxScrollPos);
+        if (isScrollbarWheel)
+          handleWheelScroll(event, maxScrollPos);
       };
       document.addEventListener('wheel', handleWheel, { passive: false });
       return () => document.removeEventListener('wheel', handleWheel, { passive: false } as any);
@@ -96,7 +97,8 @@ export const ScrollAreaScrollbarImpl = forwardRef<
               // so we remove text selection manually when scrolling
               prevWebkitUserSelectRef.current = document.body.style.webkitUserSelect;
               document.body.style.webkitUserSelect = 'none';
-              if (context.viewport) context.viewport.style.scrollBehavior = 'auto';
+              if (context.viewport)
+                context.viewport.style.scrollBehavior = 'auto';
               handleDragScroll(event);
             }
           })}
@@ -107,11 +109,12 @@ export const ScrollAreaScrollbarImpl = forwardRef<
               element.releasePointerCapture(event.pointerId);
             }
             document.body.style.webkitUserSelect = prevWebkitUserSelectRef.current;
-            if (context.viewport) context.viewport.style.scrollBehavior = '';
+            if (context.viewport)
+              context.viewport.style.scrollBehavior = '';
             rectRef.current = null;
           })}
         />
       </ScrollbarProvider>
-    )
-  }
-)
+    );
+  },
+);

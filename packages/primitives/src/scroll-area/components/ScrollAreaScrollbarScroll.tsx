@@ -1,16 +1,16 @@
-import React, { forwardRef, useEffect } from 'react'
-import { useScrollAreaContext } from '../context'
-import { SCROLLBAR_NAME } from '../constants'
-import { Presence } from '../../presence'
-import { composeEventHandlers } from '../../primitive'
-import { ScrollAreaScrollbarVisible } from './ScrollAreaScrollbarVisible'
-import { useDebounceCallback } from '../../hooks/useDebounceCallback'
-import { useStateMachine } from '../../hooks/useStateMachine'
+import React, { forwardRef, useEffect } from 'react';
+import { useScrollAreaContext } from '../context';
+import { SCROLLBAR_NAME } from '../constants';
+import { Presence } from '../../presence';
+import { composeEventHandlers } from '../../primitive';
+import { useDebounceCallback } from '../../hooks/useDebounceCallback';
+import { useStateMachine } from '../../hooks/useStateMachine';
 import type {
-  ScrollAreaScrollbarScrollElement,
   ScopedProps,
-} from '../types'
-import type { ScrollAreaScrollbarVisibleProps } from './ScrollAreaScrollbarVisible'
+  ScrollAreaScrollbarScrollElement,
+} from '../types';
+import { ScrollAreaScrollbarVisible } from './ScrollAreaScrollbarVisible';
+import type { ScrollAreaScrollbarVisibleProps } from './ScrollAreaScrollbarVisible';
 
 interface ScrollAreaScrollbarScrollProps extends ScrollAreaScrollbarVisibleProps {
   forceMount?: true;
@@ -24,8 +24,6 @@ export const ScrollAreaScrollbarScroll = forwardRef<
     const { forceMount, ...scrollbarProps } = props;
     const context = useScrollAreaContext(SCROLLBAR_NAME, props.__scopeScrollArea);
     const isHorizontal = props.orientation === 'horizontal';
-    const debounceScrollEnd = useDebounceCallback(() => send('SCROLL_END'), 100);
-
     const [state, send] = useStateMachine('hidden', {
       hidden: {
         SCROLL: 'scrolling',
@@ -44,6 +42,7 @@ export const ScrollAreaScrollbarScroll = forwardRef<
         POINTER_ENTER: 'interacting',
       },
     });
+    const debounceScrollEnd = useDebounceCallback(() => send('SCROLL_END'), 100);
 
     useEffect(() => {
       if (state === 'idle') {
@@ -83,5 +82,5 @@ export const ScrollAreaScrollbarScroll = forwardRef<
         />
       </Presence>
     );
-  }
-)
+  },
+);
