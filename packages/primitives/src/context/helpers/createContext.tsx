@@ -1,12 +1,12 @@
 import React, {
   createContext as reactCreateContext,
   useMemo,
-  useContext as useReactContext
+  useContext as useReactContext,
 } from 'react';
 
 export function createContext<ContextValueType extends object | null>(
   rootComponentName: string,
-  defaultContext?: ContextValueType
+  defaultContext?: ContextValueType,
 ) {
   const Context = reactCreateContext<ContextValueType | undefined>(defaultContext);
 
@@ -20,12 +20,14 @@ export function createContext<ContextValueType extends object | null>(
 
   function useContext(consumerName: string) {
     const context = useReactContext(Context);
-    if (context) return context;
-    if (defaultContext !== undefined) return defaultContext;
+    if (context)
+      return context;
+    if (defaultContext !== undefined)
+      return defaultContext;
     // if a defaultContext wasn't specified, it's a required context.
     throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
   }
 
-  Provider.displayName = rootComponentName + 'Provider';
+  Provider.displayName = `${rootComponentName}Provider`;
   return [Provider, useContext] as const;
 }

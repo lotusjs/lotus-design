@@ -1,4 +1,4 @@
-import type { WatermarkProps } from '../interface'
+import type { WatermarkProps } from '../interface';
 
 export const FontGap = 3;
 
@@ -11,7 +11,7 @@ function prepareCanvas(
   canvas: HTMLCanvasElement,
   realWidth: number,
   realHeight: number,
-] {
+  ] {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d')!;
 
@@ -24,7 +24,7 @@ function prepareCanvas(
   return [ctx, canvas, realWidth, realHeight];
 }
 
-export const useClips = () => {
+export function useClips() {
   function getClips(
     content: NonNullable<WatermarkProps['content']> | HTMLImageElement,
     rotate: number,
@@ -34,13 +34,14 @@ export const useClips = () => {
     font: Required<NonNullable<WatermarkProps['font']>>,
     gapX: number,
     gapY: number,
-  )  {
+  ) {
     const [ctx, canvas, contentWidth, contentHeight] = prepareCanvas(width, height, ratio);
 
     if (content instanceof HTMLImageElement) {
       // Image
       ctx.drawImage(content, 0, 0, contentWidth, contentHeight);
-    } else {
+    }
+    else {
       // Text
       const { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign } = font;
       const mergedFontSize = Number(fontSize) * ratio;

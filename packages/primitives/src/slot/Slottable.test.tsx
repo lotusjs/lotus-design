@@ -1,5 +1,5 @@
 import React from 'react';
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { Slot } from './Slot';
 import { Slottable } from './Slottable';
@@ -27,25 +27,29 @@ describe('given a Button with Slottable', () => {
     it('should render a button with icon on the left/right', async () => {
       const tree = render(
         <Button iconLeft={<span>left</span>} iconRight={<span>right</span>}>
-          Button <em>text</em>
-        </Button>
+          Button
+          {' '}
+          <em>text</em>
+        </Button>,
       );
 
       expect(tree.container).toMatchSnapshot();
-    })
+    });
 
     describe('with asChild', () => {
       it('should render a link with icon on the left/right', async () => {
         const tree = render(
           <Button iconLeft={<span>left</span>} iconRight={<span>right</span>} asChild>
             <a href="https://radix-ui.com">
-              Button <em>text</em>
+              Button
+              {' '}
+              <em>text</em>
             </a>
-          </Button>
+          </Button>,
         );
 
         expect(tree.container).toMatchSnapshot();
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});

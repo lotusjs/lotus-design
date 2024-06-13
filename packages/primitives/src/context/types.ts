@@ -1,4 +1,4 @@
-import React from 'react'
+import type React from 'react';
 
 export type Scope<C = any> = { [scopeName: string]: React.Context<C>[] } | undefined;
 export type ScopeHook = (scope: Scope) => { [__scopeProp: string]: Scope };

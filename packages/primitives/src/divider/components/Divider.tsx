@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react'
-import { Primitive } from '../../primitive'
-import { NAME, DEFAULT_ORIENTATION } from '../constants'
-import { isValidOrientation } from '../utils'
-import type { SeparatorElement, DividerProps } from '../types'
+import React, { forwardRef } from 'react';
+import { Primitive } from '../../primitive';
+import { DEFAULT_ORIENTATION, NAME } from '../constants';
+import { isValidOrientation } from '../utils';
+import type { DividerProps, SeparatorElement } from '../types';
 
 export const Divider = forwardRef<SeparatorElement, DividerProps>(
   (props, forwardedRef) => {
@@ -11,7 +11,7 @@ export const Divider = forwardRef<SeparatorElement, DividerProps>(
     const ariaOrientation = orientation === 'vertical' ? orientation : undefined;
     const semanticProps = decorative
       ? { role: 'none' }
-      : { 'aria-orientation': ariaOrientation, role: 'separator' };
+      : { 'aria-orientation': ariaOrientation, 'role': 'separator' };
 
     return (
       <Primitive.div
@@ -21,7 +21,7 @@ export const Divider = forwardRef<SeparatorElement, DividerProps>(
         ref={forwardedRef}
       />
     );
-  }
+  },
 );
 
 Divider.displayName = NAME;

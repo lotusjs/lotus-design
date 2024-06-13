@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react'
-import { Primitive } from '../../primitive'
-import { AVATAR_NAME } from '../constants'
-import { AvatarProvider } from '../context'
-import type { AvatarElement, AvatarProps, ScopedProps, ImageLoadingStatus } from '../types'
+import React, { forwardRef } from 'react';
+import { Primitive } from '../../primitive';
+import { AVATAR_NAME } from '../constants';
+import { AvatarProvider } from '../context';
+import type { AvatarElement, AvatarProps, ImageLoadingStatus, ScopedProps } from '../types';
 
 const Avatar = forwardRef<AvatarElement, AvatarProps>(
   (props: ScopedProps<AvatarProps>, forwardedRef) => {
@@ -17,9 +17,9 @@ const Avatar = forwardRef<AvatarElement, AvatarProps>(
         <Primitive.span {...avatarProps} ref={forwardedRef} />
       </AvatarProvider>
     );
-  }
+  },
 );
 
 Avatar.displayName = AVATAR_NAME;
 
-export { Avatar, type AvatarProps }
+export { Avatar, type AvatarProps };

@@ -5,7 +5,7 @@ const DirectionContext = createContext<Direction | undefined>(undefined);
 
 /* -------------------------------------------------------------------------------------------------
  * Direction
- * -----------------------------------------------------------------------------------------------*/
+ * ----------------------------------------------------------------------------------------------- */
 
 interface DirectionProviderProps {
   children?: React.ReactNode;
@@ -16,7 +16,7 @@ const DirectionProvider: React.FC<DirectionProviderProps> = (props) => {
   return <DirectionContext.Provider value={dir}>{children}</DirectionContext.Provider>;
 };
 
-/* -----------------------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------- */
 
 function useDirection(localDir?: Direction) {
   const globalDir = useContext(DirectionContext);

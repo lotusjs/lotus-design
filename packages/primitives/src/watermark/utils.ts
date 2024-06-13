@@ -4,7 +4,7 @@ export function toLowercaseSeparator(key: string) {
 
 export function getStyleStr(style: React.CSSProperties): string {
   return Object.keys(style)
-    .map((key) => `${toLowercaseSeparator(key)}: ${style[key as keyof React.CSSProperties]};`)
+    .map(key => `${toLowercaseSeparator(key)}: ${style[key as keyof React.CSSProperties]};`)
     .join(' ');
 }
 
@@ -13,15 +13,15 @@ export function getPixelRatio() {
 }
 
 /** Whether to re-render the watermark */
-export const reRendering = (mutation: MutationRecord, isWatermarkEle: (ele: Node) => boolean) => {
+export function reRendering(mutation: MutationRecord, isWatermarkEle: (ele: Node) => boolean) {
   let flag = false;
   // Whether to delete the watermark node
   if (mutation.removedNodes.length) {
-    flag = Array.from<Node>(mutation.removedNodes).some((node) => isWatermarkEle(node));
+    flag = Array.from<Node>(mutation.removedNodes).some(node => isWatermarkEle(node));
   }
   // Whether the watermark dom property value has been modified
   if (mutation.type === 'attributes' && isWatermarkEle(mutation.target)) {
     flag = true;
   }
   return flag;
-};
+}

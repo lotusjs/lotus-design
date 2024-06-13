@@ -1,5 +1,5 @@
-import React from 'react';
-import { Primitive } from '../primitive';
+import type React from 'react';
+import type { Primitive } from '../primitive';
 
 export type WatermarkElement = React.ElementRef<typeof Primitive.div>;
 

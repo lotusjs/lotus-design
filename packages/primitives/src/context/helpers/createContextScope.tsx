@@ -1,25 +1,24 @@
 import React, {
   createContext as createReactContext,
-  useContext as useReactContext,
   useMemo,
+  useContext as useReactContext,
 } from 'react';
-import { composeContextScopes } from './composeContextScopes'
-
-import type { CreateScope, Scope } from '../types'
+import type { CreateScope, Scope } from '../types';
+import { composeContextScopes } from './composeContextScopes';
 
 export function createContextScope(scopeName: string, createContextScopeDeps: CreateScope[] = []) {
   let defaultContexts: any[] = [];
 
   function createContext<ContextValueType extends object | null>(
     rootComponentName: string,
-    defaultContext?: ContextValueType
+    defaultContext?: ContextValueType,
   ) {
     const BaseContext = createReactContext<ContextValueType | undefined>(defaultContext);
     const index = defaultContexts.length;
     defaultContexts = [...defaultContexts, defaultContext];
 
     function Provider(
-      props: ContextValueType & { scope: Scope<ContextValueType>; children: React.ReactNode }
+      props: ContextValueType & { scope: Scope<ContextValueType>; children: React.ReactNode },
     ) {
       const { scope, children, ...context } = props;
       const Context = (scope?.[scopeName][index] || BaseContext) as React.Context<ContextValueType>;
@@ -31,17 +30,19 @@ export function createContextScope(scopeName: string, createContextScopeDeps: Cr
 
     function useContext(
       consumerName: string,
-      scope: Scope<ContextValueType | undefined>
+      scope: Scope<ContextValueType | undefined>,
     ) {
       const Context = scope?.[scopeName][index] || BaseContext;
       const context = useReactContext(Context as React.Context<ContextValueType>);
-      if (context) return context;
-      if (defaultContext !== undefined) return defaultContext;
+      if (context)
+        return context;
+      if (defaultContext !== undefined)
+        return defaultContext;
       // if a defaultContext wasn't specified, it's a required context.
       throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
     }
 
-    Provider.displayName = rootComponentName + 'Provider';
+    Provider.displayName = `${rootComponentName}Provider`;
 
     return [Provider, useContext] as const;
   }
@@ -54,7 +55,7 @@ export function createContextScope(scopeName: string, createContextScopeDeps: Cr
       const contexts = scope?.[scopeName] || scopeContexts;
       return useMemo(
         () => ({ [`__scope${scopeName}`]: { ...scope, [scopeName]: contexts } }),
-        [scope, contexts]
+        [scope, contexts],
       );
     };
   };

@@ -1,6 +1,6 @@
-import React, { forwardRef, Children, isValidElement, cloneElement } from 'react';
-import { isSlottable } from './Slottable'
-import { SlotClone } from './SlotClone'
+import React, { Children, cloneElement, forwardRef, isValidElement } from 'react';
+import { isSlottable } from './Slottable';
+import { SlotClone } from './SlotClone';
 
 export interface SlotProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
@@ -9,6 +9,7 @@ export interface SlotProps extends React.HTMLAttributes<HTMLElement> {
 export const Slot = forwardRef<HTMLElement, SlotProps>(
   (props, forwardedRef) => {
     const { children, ...slotProps } = props;
+    // eslint-disable-next-line react/no-children-to-array
     const childrenArray = Children.toArray(children);
     const slottable = childrenArray.find(isSlottable);
 
@@ -17,23 +18,28 @@ export const Slot = forwardRef<HTMLElement, SlotProps>(
 
       const newChildren = childrenArray.map((child) => {
         if (child === slottable) {
-          if (Children.count(newElement) > 1) return Children.only(null);
+          // eslint-disable-next-line react/no-children-count
+          if (Children.count(newElement) > 1)
+            // eslint-disable-next-line react/no-children-only
+            return Children.only(null);
 
           return isValidElement(newElement)
             ? (newElement.props.children as React.ReactNode)
             : null;
-        } else {
+        }
+        else {
           return child;
         }
-      })
+      });
 
       return (
         <SlotClone {...slotProps} ref={forwardedRef}>
           {isValidElement(newElement)
+            // eslint-disable-next-line react/no-clone-element
             ? cloneElement(newElement, undefined, newChildren)
             : null}
         </SlotClone>
-      )
+      );
     }
 
     return (
@@ -41,7 +47,7 @@ export const Slot = forwardRef<HTMLElement, SlotProps>(
         {children}
       </SlotClone>
     );
-  }
-)
+  },
+);
 
 Slot.displayName = 'Slot';

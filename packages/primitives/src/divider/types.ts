@@ -1,5 +1,5 @@
-import { Primitive } from '../primitive'
-import { ORIENTATIONS } from './constants'
+import type { Primitive } from '../primitive';
+import type { ORIENTATIONS } from './constants';
 
 export type Orientation = typeof ORIENTATIONS[number];
 export type SeparatorElement = React.ElementRef<typeof Primitive.div>;

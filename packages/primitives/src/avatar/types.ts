@@ -1,13 +1,13 @@
-import React from 'react'
-import { Primitive } from '../primitive'
-import type { Scope } from '../context'
+import type React from 'react';
+import type { Primitive } from '../primitive';
+import type { Scope } from '../context';
 
 export type ScopedProps<P> = P & { __scopeAvatar?: Scope };
 export type ImageLoadingStatus = 'idle' | 'loading' | 'loaded' | 'error';
-export type AvatarContextValue = {
+export interface AvatarContextValue {
   imageLoadingStatus: ImageLoadingStatus;
-  onImageLoadingStatusChange(status: ImageLoadingStatus): void;
-};
+  onImageLoadingStatusChange: (status: ImageLoadingStatus) => void;
+}
 
 type PrimitiveSpanProps = React.ComponentPropsWithoutRef<typeof Primitive.span>;
 export type AvatarElement = React.ElementRef<typeof Primitive.span>;

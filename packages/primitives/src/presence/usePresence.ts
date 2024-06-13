@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useLayoutEffect } from '../hooks/useLayoutEffect';
 import { useStateMachine } from '../hooks/useStateMachine';
-import { getAnimationName } from './utils'
+import { getAnimationName } from './utils';
 
 export function usePresence(present: boolean) {
   const [node, setNode] = useState<HTMLElement>();
@@ -40,11 +40,13 @@ export function usePresence(present: boolean) {
 
       if (present) {
         send('MOUNT');
-      } else if (currentAnimationName === 'none' || styles?.display === 'none') {
+      }
+      else if (currentAnimationName === 'none' || styles?.display === 'none') {
         // If there is no exit animation or the element is hidden, animations won't run
         // so we unmount instantly
         send('UNMOUNT');
-      } else {
+      }
+      else {
         /**
          * When `present` changes to `false`, we check changes to animation-name to
          * determine whether an animation has started. We chose this approach (reading
@@ -55,7 +57,8 @@ export function usePresence(present: boolean) {
 
         if (wasPresent && isAnimating) {
           send('ANIMATION_OUT');
-        } else {
+        }
+        else {
           send('UNMOUNT');
         }
       }
@@ -95,7 +98,8 @@ export function usePresence(present: boolean) {
         node.removeEventListener('animationcancel', handleAnimationEnd);
         node.removeEventListener('animationend', handleAnimationEnd);
       };
-    } else {
+    }
+    else {
       // Transition to the unmounted state if the node is removed prematurely.
       // We avoid doing so during cleanup as the node may change but still exist.
       send('ANIMATION_END');
@@ -105,7 +109,8 @@ export function usePresence(present: boolean) {
   return {
     isPresent: ['mounted', 'unmountSuspended'].includes(state),
     ref: React.useCallback((node: HTMLElement) => {
-      if (node) stylesRef.current = getComputedStyle(node);
+      if (node)
+        stylesRef.current = getComputedStyle(node);
       setNode(node);
     }, []),
   };

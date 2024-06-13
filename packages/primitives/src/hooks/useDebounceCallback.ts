@@ -1,5 +1,5 @@
-import { useRef, useEffect, useCallback } from 'react'
-import { useCallbackRef } from './useCallbackRef'
+import { useCallback, useEffect, useRef } from 'react';
+import { useCallbackRef } from './useCallbackRef';
 
 export function useDebounceCallback(callback: () => void, delay: number) {
   const handleCallback = useCallbackRef(callback);
@@ -11,6 +11,6 @@ export function useDebounceCallback(callback: () => void, delay: number) {
       window.clearTimeout(debounceTimerRef.current);
       debounceTimerRef.current = window.setTimeout(handleCallback, delay);
     },
-    [handleCallback, delay]
+    [handleCallback, delay],
   );
 }
