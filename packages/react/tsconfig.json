@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src", "types", "reset.d.ts"],
-  "compilerOptions": {}
+  "compilerOptions": {},
+  "include": ["src", "types", "reset.d.ts"]
 }
