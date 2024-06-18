@@ -1,9 +1,9 @@
-import { ScrollArea } from '@sensoro-design/react'
-import { Tags } from './components/Tags'
-import { Cards } from './components/Cards'
-import styles from './basic.module.less'
+import { ScrollArea } from '@sensoro-design/react';
+import { Tags } from './components/Tags';
+import { Cards } from './components/Cards';
+import styles from './basic.module.less';
 
-const Basic = () => {
+function Basic() {
   return (
     <>
       <ScrollArea className={styles.root}>
@@ -30,8 +30,7 @@ const Basic = () => {
         <Cards />
       </ScrollArea>
     </>
-  )
+  );
 }
 
 export default Basic;
-
