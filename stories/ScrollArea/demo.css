@@ -1,0 +1,11 @@
+.scroll-area-demo1 {
+  --radius: 0.5rem;
+  --border: 240 5.9% 90%;
+
+  width: 12rem;
+  height: 18rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: calc(var(--radius) - 2px);
+  border-color: hsl(var(--border));
+}
