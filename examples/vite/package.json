@@ -18,7 +18,6 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
     "vite": "^5.2.0",
-    "vite-plugin-style-import": "^2.0.0",
     "vite-tsconfig-paths": "^4.3.2"
   }
 }

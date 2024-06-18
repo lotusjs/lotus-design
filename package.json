@@ -10,6 +10,7 @@
     "bootstrap": "pnpm install",
     "dev": "storybook dev -p 6006",
     "start": "pnpm --filter=website run start",
+    "build:docs": "storybook build",
     "build:primitives": "pnpm --filter=@lotus-design/react-primitives run build",
     "build:react": "pnpm --filter=@sensoro-design/react run build",
     "example:vite": "pnpm --filter=@example/vite run start",
@@ -28,8 +29,7 @@
     "prepare": "husky || true",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
     "preinstall": "npx only-allow pnpm",
-    "major": "taze minor -wIr",
-    "build-storybook": "storybook build"
+    "major": "taze minor -wIr"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.0",
