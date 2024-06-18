@@ -11,14 +11,11 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  argTypes: {},
   args: { },
 } satisfies Meta<typeof ScrollArea>;
 
 export default meta;
-// type Story = StoryObj<typeof meta>;
 
 export function Basic() {
   return (

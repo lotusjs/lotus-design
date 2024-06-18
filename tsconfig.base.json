@@ -34,5 +34,5 @@
     "skipLibCheck": true,
     "pretty": true
   },
-  "include": ["packages", "types", "scripts"]
+  "include": ["packages", "types", "scripts", "stories"]
 }
