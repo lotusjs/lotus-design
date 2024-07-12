@@ -295,24 +295,6 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2(typescript@5.4.5)(vite@5.2.0(@types/node@20.14.2)(less@4.2.0)(terser@5.31.1))
 
-  packages/primitives:
-    dependencies:
-      '@rcuse/core':
-        specifier: ^0.19.0
-        version: 0.19.0
-      '@types/react':
-        specifier: '*'
-        version: 18.3.3
-      '@types/react-dom':
-        specifier: '*'
-        version: 18.3.0
-      react:
-        specifier: '>=16.9.0'
-        version: 18.3.1
-      react-dom:
-        specifier: '>=16.9.0'
-        version: 18.3.1(react@18.3.1)
-
   packages/react:
     dependencies:
       '@lotus-design/react-primitives':
@@ -330,9 +312,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      dayjs:
-        specifier: ^1.11.11
-        version: 1.11.11
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       react:
         specifier: '>=16.9.0'
         version: 18.3.1
@@ -4606,6 +4588,9 @@ packages:
   data-urls@5.0.0:
     resolution: {integrity: sha512-ZYP5VBHshaDAiVZxjbRVcFJpc+4xGgT0bK3vzy1HLN8jTO975HEbuYzZJcHoQEY5K1a0z8YayJkyVETa08eNTg==}
     engines: {node: '>=18'}
+
+  date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
 
   dateformat@3.0.3:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
@@ -16550,6 +16535,8 @@ snapshots:
     dependencies:
       whatwg-mimetype: 4.0.0
       whatwg-url: 14.0.0
+
+  date-fns@3.6.0: {}
 
   dateformat@3.0.3: {}
 
